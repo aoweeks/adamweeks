@@ -8,23 +8,23 @@
     <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
       <header class="navbar navbar-light navbar-fixed-top navbar-expand-lg">
     
-        <a class="navbar-brand" (click)="navbarCollapsed = true">ng-bootstrap</a>
+        <a [routerLink]="['/']" class="navbar-brand" (click)="navbarCollapsed = true">ng-bootstrap</a>
     
         <button class="navbar-toggler navbar-toggler-right" type="button" (click)="navbarCollapsed = !navbarCollapsed"
                 [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
     
-        <div class="navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarContent">
+        <nav class="navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" (click)="navbarCollapsed = true">Getting Started</a>
+              <a class="nav-link" [routerLink]="['/about']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" (click)="navbarCollapsed = true">Components</a>
-            </li>
-            <li class="nav-item d-lg-none" *ngFor="let component of components">
-              <a class="nav-link" (click)="navbarCollapsed = true">{{ component }}</a>
+              <a class="nav-link" [routerLink]="['/art']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">Art</a>
+            </li>            
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/code']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">Code</a>
             </li>
           </ul>
     
@@ -44,15 +44,16 @@
                data-url="https://ng-bootstrap.github.io"
                data-show-count="true">Tweet #ngbootstrap</a>
           </span>
-        </div>
+        </nav>
       </header>
     </div>
     
-    <div>
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
     </div>
     
     <footer class="bd-footer text-muted">
-      <div class="container">
+      <div class="container-fluid">
         <p>Designed and built by the <a href="https://github.com/orgs/ng-bootstrap/people" target="_blank">ng-bootstrap
           team</a> with the help of our <a href="https://github.com/ng-bootstrap/ng-bootstrap/graphs/contributors"
                                            target="_blank">contributors</a>.</p>
