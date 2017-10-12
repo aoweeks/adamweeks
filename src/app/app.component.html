@@ -48,9 +48,9 @@
       </header>
     </div>
     
-    <div class="container-fluid">
-      <router-outlet></router-outlet>
-    </div>
+    <main class="container-fluid" [@routerTransition]="getState(o)">
+      <router-outlet #o="outlet"></router-outlet>
+    </main>
     
     <footer class="bd-footer text-muted">
       <div class="container-fluid">

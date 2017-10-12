@@ -5,14 +5,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
-import { AboutPage } from './about/about.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutPage
+    AboutComponent,
+    HomeComponent
   ],
   imports: [
     AppRouting,
