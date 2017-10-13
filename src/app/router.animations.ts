@@ -1,5 +1,7 @@
 import {trigger, animate, style, group, query, transition} from '@angular/animations';
 
+
+// Page transition: old page exits right, new page enters from the left
 const slideRight = [
     query(':enter, :leave', style({ position: 'fixed', width:'100%' })
       , { optional: true }),
@@ -14,7 +16,8 @@ const slideRight = [
       ], { optional: true }),
     ])
   ];
-  
+
+// Page transition: old page exits left, new page enters from the right
 const slideLeft = [
     query(':enter, :leave', style({ position: 'fixed', width:'100%' })
       , { optional: true }),

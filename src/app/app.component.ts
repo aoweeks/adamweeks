@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { routerTransition } from './router.animations';
+import { BackgroundGeneratorService } from './background-generator/background-generator.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,11 @@ import { routerTransition } from './router.animations';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  
+  constructor(private backgroundGeneratorService: BackgroundGeneratorService){
+    
+  }
+  
   getState(outlet) {
     return outlet.activatedRouteData.state;
   }

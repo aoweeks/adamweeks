@@ -5,9 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { BackgroundGeneratorService } from './background-generator/background-generator.service';
+
+import { AboutComponent } from './pages/about/about.component';
+import { HomeComponent } from './pages/home/home.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
 
@@ -24,7 +26,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ BackgroundGeneratorService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
