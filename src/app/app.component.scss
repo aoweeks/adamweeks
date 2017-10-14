@@ -10,5 +10,19 @@
          
          height: 100%;
          width: 100%;
+             
+             
+         .triangleColour0:nth-of-type(odd){
+             transition: fill 3s;
+         }
+         
+         .triangleColour0:nth-of-type(even){
+             transition: fill .25s;
+         }
+         
      }
+ }
+ 
+ #pattern{
+     y: 20;
  }
