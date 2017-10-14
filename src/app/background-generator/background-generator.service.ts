@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class BackgroundGeneratorService {
   
-  bgColours = ['red'];
+  bgColours: string[] = ['red'];
   
   constructor() {
     
   }
   
   public colourChange(baseColour: string) : void{
-      document.body.style.backgroundColor = baseColour;
+      this.bgColours[0] = baseColour;
   }
 
 

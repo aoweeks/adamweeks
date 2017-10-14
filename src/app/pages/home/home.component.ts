@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackgroundGeneratorService } from '../../background-generator/background-generator.service';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {
 
+  constructor(private backgroundGeneratorService: BackgroundGeneratorService){
   }
 
   ngOnInit() {
+    this.backgroundGeneratorService.colourChange('darkblue');
   }
 
 }

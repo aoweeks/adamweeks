@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackgroundGeneratorService } from '../../background-generator/background-generator.service';
 
 @Component({
   selector: 'app-not-found',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
-  constructor() { }
+  constructor(private backgroundGeneratorService: BackgroundGeneratorService){
+  }
 
   ngOnInit() {
+    this.backgroundGeneratorService.colourChange('maroon');
   }
 
 }
