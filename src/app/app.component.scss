@@ -11,13 +11,16 @@
          height: 100%;
          width: 100%;
              
+         .triangleColour{
+            transition: fill 1.5s linear 0.5s;
+         }    
              
          .triangleColour0:nth-of-type(odd){
              transition: fill 3s;
          }
          
          .triangleColour0:nth-of-type(even){
-             transition: fill .25s;
+             transition: fill .5s linear 1s;
          }
          
      }

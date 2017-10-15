@@ -12,7 +12,7 @@ export class NotFoundComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.backgroundGeneratorService.colourChange('maroon');
+    this.backgroundGeneratorService.colourChange( 'hsl(200, 50%, 70%)' );
   }
 
 }

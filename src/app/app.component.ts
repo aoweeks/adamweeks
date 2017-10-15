@@ -10,8 +10,6 @@ import { BackgroundGeneratorService } from './background-generator/background-ge
 })
 export class AppComponent {
   
-  color = 'green';
-  
   constructor(private backgroundGeneratorService: BackgroundGeneratorService){
     
   }
