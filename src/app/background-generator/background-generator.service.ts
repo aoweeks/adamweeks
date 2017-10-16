@@ -13,6 +13,7 @@ export class BackgroundGeneratorService {
   }
   
   
+  
   // Change the background colours to shades of a base colour given by the page
   
   public colourChange(baseColour: string): void{
@@ -23,6 +24,7 @@ export class BackgroundGeneratorService {
     
     this.colours = this.findShades(hueAndSaturation, lightness);
   }
+
 
 
   public toggleColour(){
@@ -45,7 +47,14 @@ export class BackgroundGeneratorService {
       );
     }
     
-    console.log(newColours);
     return newColours;
+  }
+  
+  private scrollHandler() {
+    // Do whatever
+    
+    // console.log('hpo');
+    // this.yOffset = window.scrollY;
+    // requestAnimationFrame(this.scrollHandler);
   }
 }

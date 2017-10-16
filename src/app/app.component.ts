@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { routerTransition } from './router.animations';
 import { BackgroundGeneratorService } from './background-generator/background-generator.service';
 
@@ -9,9 +9,15 @@ import { BackgroundGeneratorService } from './background-generator/background-ge
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   
   constructor(private backgroundGeneratorService: BackgroundGeneratorService){
     
+  }
+  
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    this.backgroundGeneratorService.yOffset = -window.scrollY;
   }
   
   getState(outlet) {
