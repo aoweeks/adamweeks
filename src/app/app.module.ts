@@ -10,6 +10,8 @@ import { BackgroundGeneratorService } from './background-generator/background-ge
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { HeaderComponent } from './sections/header/header.component';
+import { FooterComponent } from './sections/footer/footer.component';
 
 
 
@@ -18,7 +20,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     AppComponent,
     AboutComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     AppRouting,

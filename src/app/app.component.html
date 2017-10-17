@@ -1,15 +1,91 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<html>
+<html  [@routerTransition]="getState(o)">
   <head>
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   </head>
   <body [style.background-color]='color'>
-    <svg id="backgroundSVG">
+    <svg id="headerSVG" z-index="-1">
         <defs>
-          <pattern id="pattern" [attr.x]="backgroundGeneratorService.xOffset"
-            [attr.y]="backgroundGeneratorService.yOffset" width="576"
-            height="288" z-index="-1" patternUnits="userSpaceOnUse">
+          <pattern id="headerPattern" [attr.x]="backgroundGeneratorService.browserOffset.currentX"
+            [attr.y]="backgroundGeneratorService.getYOffset()" width="576"
+            height="288" patternUnits="userSpaceOnUse">
+            
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[1]" points="72,0 63,63 0,72 0,0 "/>
+            <polygon class="triangleColour triangleColour1" [style.fill]="backgroundGeneratorService.colours[1]" points="72,0 99,36 72,72 36,99 0,72 "/>
+            <polygon class="triangleColour triangleColour2" [style.fill]="backgroundGeneratorService.colours[1]" points="72,0 135,9 144,72 108,99 72,72 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[1]" points="72,0 144,0 171,36 144,72 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[1]" points="72,144 63,81 0,72 0,144 36,171 72,144 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[1]" points="72,144 99,108 72,72 0,72 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[1]" points="72,144 135,135 144,72 72,72 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[1]" points="72,144 108,171 144,144 171,108 144,72 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[1]" points="72,144 63,207 0,216 0,144 "/>
+            <polygon class="triangleColour triangleColour1" [style.fill]="backgroundGeneratorService.colours[1]" points="72,144 99,180 72,216 36,243 0,216 "/>
+            <polygon class="triangleColour triangleColour2" [style.fill]="backgroundGeneratorService.colours[1]" points="72,144 135,153 144,216 108,243 72,216 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[1]" points="72,144 144,144 171,180 144,216 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[1]" points="72,288 63,225 0,216 0,288 36,315 72,288 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[1]" points="72,288 99,252 72,216 0,216 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[1]" points="72,288 135,279 144,216 72,216 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[1]" points="72,288 108,315 144,288 171,252 144,216 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[1]" points="216,0 207,63 144,72 144,0 "/>
+            <polygon class="triangleColour triangleColour1" [style.fill]="backgroundGeneratorService.colours[1]" points="216,0 243,36 216,72 180,99 144,72 "/>
+            <polygon class="triangleColour triangleColour2" [style.fill]="backgroundGeneratorService.colours[1]" points="216,0 279,9 288,72 252,99 216,72 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[1]" points="216,0 288,0 315,36 288,72 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="216,144 207,81 144,72 144,144 180,171 216,144 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="216,144 243,108 216,72 144,72 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="216,144 279,135 288,72 216,72 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="216,144 252,171 288,144 315,108 288,72 "/>
+            <polygon class="triangleColour triangleColour2" [style.fill]="backgroundGeneratorService.colours[2]" points="216,144 207,207 144,216 144,144 "/>
+            <polygon class="triangleColour triangleColour1" [style.fill]="backgroundGeneratorService.colours[1]" points="216,144 243,180 216,216 180,243 144,216 "/>
+            <polygon class="triangleColour triangleColour2" [style.fill]="backgroundGeneratorService.colours[2]" points="216,144 279,153 288,216 252,243 216,216 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="216,144 288,144 315,180 288,216 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="216,288 207,225 144,216 144,288 180,315 216,288 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="216,288 243,252 216,216 144,216 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="216,288 279,279 288,216 216,216 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="216,288 252,315 288,288 315,252 288,216 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="360,0 351,63 288,72 288,0 "/>
+            <polygon class="triangleColour triangleColour1" [style.fill]="backgroundGeneratorService.colours[1]" points="360,0 387,36 360,72 324,99 288,72 "/>
+            <polygon class="triangleColour triangleColour2" [style.fill]="backgroundGeneratorService.colours[2]" points="360,0 423,9 432,72 396,99 360,72 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="360,0 432,0 459,36 432,72 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="360,144 351,81 288,72 288,144 324,171 360,144 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="360,144 387,108 360,72 288,72 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="360,144 423,135 432,72 360,72 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="360,144 396,171 432,144 459,108 432,72 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="360,144 351,207 288,216 288,144 "/>
+            <polygon class="triangleColour triangleColour1" [style.fill]="backgroundGeneratorService.colours[1]" points="360,144 387,180 360,216 324,243 288,216 "/>
+            <polygon class="triangleColour triangleColour2" [style.fill]="backgroundGeneratorService.colours[2]" points="360,144 423,153 432,216 396,243 360,216 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="360,144 432,144 459,180 432,216 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="360,288 351,225 288,216 288,288 324,315 360,288 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="360,288 387,252 360,216 288,216 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="360,288 423,279 432,216 360,216 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="360,288 396,315 432,288 459,252 432,216 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="504,0 495,63 432,72 432,0 "/>
+            <polygon class="triangleColour triangleColour1" [style.fill]="backgroundGeneratorService.colours[1]" points="504,0 531,36 504,72 468,99 432,72 "/>
+            <polygon class="triangleColour triangleColour2" [style.fill]="backgroundGeneratorService.colours[2]" points="504,0 567,9 576,72 540,99 504,72 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="504,0 576,0 603,36 576,72 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="504,144 495,81 432,72 432,144 468,171 504,144 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="504,144 531,108 504,72 432,72 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="504,144 567,135 576,72 504,72 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="504,144 540,171 576,144 603,108 576,72 "/>
+            <polygon class="triangleColour triangleColour2" [style.fill]="backgroundGeneratorService.colours[2]" points="504,144 495,207 432,216 432,144 "/>
+            <polygon class="triangleColour triangleColour1" [style.fill]="backgroundGeneratorService.colours[1]" points="504,144 531,180 504,216 468,243 432,216 "/>
+            <polygon class="triangleColour triangleColour2" [style.fill]="backgroundGeneratorService.colours[2]" points="504,144 567,153 576,216 540,243 504,216 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="504,144 576,144 603,180 576,216 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="504,288 495,225 432,216 432,288 468,315 504,288 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="504,288 531,252 504,216 432,216 "/>
+            <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="504,288 567,279 576,216 504,216 "/>
+            <polygon class="triangleColour triangleColour3" [style.fill]="backgroundGeneratorService.colours[3]" points="504,288 540,315 576,288 603,252 576,216 "/>
+          </pattern>
+        </defs>
+      
+        <rect fill="url(#pattern)" width="100%" height="100%"/>
+    </svg>
+    
+    <svg id="backgroundSVG" z-index="-2">
+        <defs>
+          <pattern id="pattern" [attr.x]="backgroundGeneratorService.browserOffset.currentX"
+            [attr.y]="backgroundGeneratorService.getYOffset()" width="576"
+            height="288" patternUnits="userSpaceOnUse">
             
             <polygon class="triangleColour triangleColour0" [style.fill]="backgroundGeneratorService.colours[0]" points="72,0 63,63 0,72 0,0 "/>
             <polygon class="triangleColour triangleColour1" [style.fill]="backgroundGeneratorService.colours[1]" points="72,0 99,36 72,72 36,99 0,72 "/>
@@ -81,50 +157,10 @@
         <rect fill="url(#pattern)" stroke="black" width="100%" height="100%"/>
     </svg>
     
-    <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
-      <header class="navbar navbar-light navbar-fixed-top navbar-expand-lg">
     
-        <a [routerLink]="['/']" class="navbar-brand" (click)="navbarCollapsed = true">ng-bootstrap</a>
+    <aw-header></aw-header>
     
-        <button class="navbar-toggler navbar-toggler-right" type="button" (click)="navbarCollapsed = !navbarCollapsed"
-                [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <div class="navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/about']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/art']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">Art</a>
-            </li>            
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/code']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">Code</a>
-            </li>
-          </ul>
-    
-          <span class="github-buttons d-none d-lg-inline">
-            <a class="github-button"
-               href="https://github.com/ng-bootstrap/ng-bootstrap"
-               target="_blank"
-               data-style="mega"
-               data-count-href="/ng-bootstrap/ng-bootstrap/stargazers"
-               data-count-api="/repos/ng-bootstrap/ng-bootstrap#stargazers_count"
-               data-count-aria-label="# stargazers on GitHub"
-               aria-label="Star ng-bootstrap/ng-bootstrap on GitHub">Star</a>
-            <a href="https://twitter.com/intent/tweet?button_hashtag=ngbootstrap"
-               class="twitter-hashtag-button"
-               data-size="large"
-               data-text="I&#39;m checking out ng-bootstrap, THE Angular UI framework for Bootstrap CSS"
-               data-url="https://ng-bootstrap.github.io"
-               data-show-count="true">Tweet #ngbootstrap</a>
-          </span>
-        </div>
-      </header>
-    </div>
-    
-    <main class="container-fluid" [@routerTransition]="getState(o)">
+    <main class="container-fluid">
       <router-outlet #o="outlet"></router-outlet>
     </main>
     

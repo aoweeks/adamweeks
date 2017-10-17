@@ -1,14 +1,17 @@
+
  body{ 
+     
      
      main{
          position: relative;
      }
      
-     #backgroundSVG{
+     #backgroundSVG, #headerSVG{
+         
+        
          
          position: fixed;
          
-         height: 100%;
          width: 100%;
              
          .triangleColour{
@@ -24,8 +27,10 @@
          }
          
      }
- }
- 
- #pattern{
-     y: 20;
+     #backgroundSVG{
+         height: 100%;
+     }
+     #headerSVG{
+         height: 50px !important;
+     }
  }

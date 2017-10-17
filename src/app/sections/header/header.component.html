@@ -1,0 +1,42 @@
+<div class="container-fluid" style="padding-left: 0; padding-right: 0;">
+  <header class="navbar navbar-light navbar-fixed-top navbar-expand-lg">
+
+    <a [routerLink]="['/']" class="navbar-brand" (click)="navbarCollapsed = true">ng-bootstrap</a>
+
+    <button class="navbar-toggler navbar-toggler-right" type="button" (click)="navbarCollapsed = !navbarCollapsed"
+            [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/about']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/art']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">Art</a>
+        </li>            
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/code']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">Code</a>
+        </li>
+      </ul>
+
+      <span class="github-buttons d-none d-lg-inline">
+        <a class="github-button"
+           href="https://github.com/ng-bootstrap/ng-bootstrap"
+           target="_blank"
+           data-style="mega"
+           data-count-href="/ng-bootstrap/ng-bootstrap/stargazers"
+           data-count-api="/repos/ng-bootstrap/ng-bootstrap#stargazers_count"
+           data-count-aria-label="# stargazers on GitHub"
+           aria-label="Star ng-bootstrap/ng-bootstrap on GitHub">Star</a>
+        <a href="https://twitter.com/intent/tweet?button_hashtag=ngbootstrap"
+           class="twitter-hashtag-button"
+           data-size="large"
+           data-text="I&#39;m checking out ng-bootstrap, THE Angular UI framework for Bootstrap CSS"
+           data-url="https://ng-bootstrap.github.io"
+           data-show-count="true">Tweet #ngbootstrap</a>
+      </span>
+    </div>
+  </header>
+</div>

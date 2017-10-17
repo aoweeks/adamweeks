@@ -5,14 +5,22 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class BackgroundGeneratorService {
   
   colours: any[] = [' hsl(50, 100%, 50%)'];
-  xOffset: number = 0;
-  yOffset: number = 0;
+  browserOffset = {
+    currentX: 0,
+    currentY: 0,
+    prevX: 0,
+    prevY: 0
+  };
   
   constructor(private sanitizer: DomSanitizer) {
     
   }
   
-  
+  // Remember the scroll pos when navigating to new page
+  public newPage(){
+      console.log(this.browserOffset.currentY);
+      this.browserOffset.prevY += this.browserOffset.currentY;
+  }
   
   // Change the background colours to shades of a base colour given by the page
   
@@ -25,12 +33,18 @@ export class BackgroundGeneratorService {
     this.colours = this.findShades(hueAndSaturation, lightness);
   }
 
-
-
-  public toggleColour(){
-    this.xOffset += window.innerWidth;
-    this.yOffset += 10;
+  // Return how much to offset the background y-axis by, which is the current
+  // scroll pos + how much the scroll pos was when previous links clicked
+  public getYOffset(): number{
+    console.log( this.browserOffset.currentY + this.browserOffset.prevY );
+    return this.browserOffset.currentY + this.browserOffset.prevY;
   }
+  
+  public updateYOffset(): void{
+    console.log(this.browserOffset.currentY);
+    this.browserOffset.currentY = -window.scrollY;
+  }
+
   
   // Return an array of shades of a given HSL colour
   

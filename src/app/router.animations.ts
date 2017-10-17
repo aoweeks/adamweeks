@@ -14,6 +14,10 @@ const slideRight = [
         style({ transform: 'translateX(0%)' }),
         animate('500ms cubic-bezier(.75,-0.48,.26,1.52)', style({ transform: 'translateX(100%)' }))
       ], { optional: true }),
+      query('body', [
+        style({ background: 'red' }),
+        animate('500ms cubic-bezier(.75,-0.48,.26,1.52)', style({ background: 'green' }))
+      ], { optional: true}),
     ])
   ];
 
