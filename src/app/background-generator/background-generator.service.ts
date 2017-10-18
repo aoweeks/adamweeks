@@ -4,7 +4,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Injectable()
 export class BackgroundGeneratorService {
   
-  colours: any[] = [' hsl(50, 100%, 50%)'];
+  colours: string[] = [];
+  darkColours: string[] = []
   browserOffset = {
     currentX: 0,
     currentY: 0,
@@ -30,7 +31,9 @@ export class BackgroundGeneratorService {
     var hueAndSaturation: string = hslPieces[0] + "," + hslPieces[1];
     var lightness: number = parseInt(hslPieces[2], 10);
     
-    this.colours = this.findShades(hueAndSaturation, lightness);
+    var newShades = this.findShades(hueAndSaturation, lightness);
+    this.colours = newShades[0];
+    this.darkColours = newShades[1];
   }
 
   // Return how much to offset the background y-axis by, which is the current
@@ -48,10 +51,11 @@ export class BackgroundGeneratorService {
   
   // Return an array of shades of a given HSL colour
   
-  private findShades(hueAndSaturation: string, lightness: number): string[] {
+  private findShades(hueAndSaturation: string, lightness: number): string[][] {
     
     var lightnessAdjustments: number[] = [0, 10, -5, -10];
     var newColours: any[] = [];
+    var newDarkColours: any[] = [];
     
     for(var adjustment of lightnessAdjustments){
       newColours.push(
@@ -59,9 +63,15 @@ export class BackgroundGeneratorService {
           hueAndSaturation + ', ' + (lightness + adjustment).toString() + '%'
         )
       );
+      
+      newDarkColours.push(
+        this.sanitizer.bypassSecurityTrustStyle(
+          hueAndSaturation + ', ' + (lightness + adjustment - 30).toString() + '%'
+        )
+      );
     }
     
-    return newColours;
+    return [newColours, newDarkColours];
   }
   
   private scrollHandler() {
