@@ -1,17 +1,32 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
 
- body{ 
+body{
+	background-color: #333;
+// 	background: url('./assets/images/background2.png');
+	/*background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='99' height='80' viewbox='0 0 99 80'><linearGradient id='gradient'><stop offset='0%' stop-color='#F00'/><stop offset='100%' stop-color='#fcc'/></linearGradient><rect transform='translate(-10) rotate(45 30 140)' fill='url(#gradient)' x='0' y='0' width='99' height='80'/></svg>");
+	*/
+	background-size: 60rem 60rem;
+
+	color: #FFF;
+
      
      
-     main{
+     aw-header, main, aw-footer{
          position: relative;
      }
      
-     #backgroundSVG, #headerSVG{
-         
-        
-         
+     #backgroundSVG{
+
          position: fixed;
          
+         top:0;
+         bottom:0;
+         left:0;
+         right:0;
+         height: 100%;
          width: 100%;
              
          .triangleColour{
@@ -25,12 +40,5 @@
          .triangleColour0:nth-of-type(even){
              transition: fill .5s linear 1s;
          }
-         
-     }
-     #backgroundSVG{
-         height: 100%;
-     }
-     #headerSVG{
-         height: 50px !important;
      }
  }

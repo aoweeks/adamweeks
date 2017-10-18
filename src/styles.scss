@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+$primaryAccent: #F2642A;
+
+
+@font-face {
+  font-family: 'Jaapokki';
+  src: url('./assets/fonts/jaapokki-regular.eot'); /* IE9 Compat Modes */
+  src: url('./assets/fonts/jaapokki-regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('./assets/fonts/jaapokki-regular.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+
+
+.naughty-o{
+
+	margin-left: -0.05em;
+}

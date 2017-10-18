@@ -1,8 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { routerTransition } from './router.animations';
 import { BackgroundGeneratorService } from './background-generator/background-generator.service';
-import { FooterComponent } from './sections/footer/footer.component';
-import { HeaderComponent } from './sections/header/header.component';
 
 
 @Component({

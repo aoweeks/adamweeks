@@ -1,7 +1,25 @@
 <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
   <header class="navbar navbar-light navbar-fixed-top navbar-expand-lg">
-
-    <a [routerLink]="['/']" class="navbar-brand" (click)="navbarCollapsed = true">ng-bootstrap</a>
+      
+      <a [routerLink]="['/']" class="navbar-brand" (click)="navbarCollapsed = true">
+    	<svg version="1.1" id="nav-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    	 viewBox="0 0 74.603 33.485" enable-background="new 0 0 74.603 33.485" xml:space="preserve">
+    		<polygon fill="none" stroke="#FFFFFF" stroke-width="3" stroke-miterlimit="10" points="2.405,26.945 20.059,26.945 11.235,8.912 
+    			"/>
+    		<!-- Offset the polygon so that centre of triangle is technically at 0,0, but appears in different place. This is because
+    			the centre of rotation has to be 0,0 of the SVG -->
+    		<g transform="translate(27.182,16.0575)">
+    			<!-- translate(36.012, 16.0575) + (8.8275, 9.0165) -->
+    			<polygon class="triangle" id="triangle-1" fill="none" stroke="#F2642A" stroke-width="3" stroke-miterlimit="10" points="8.83,-9.0165 -8.83,-9.0165 0,9.0165
+    			"/>
+    		</g>
+    		<g transform="translate(35.182,16.0575)">
+    			<polygon class="triangle" id="triangle-2" fill="none" stroke="#F2642A" stroke-width="3" stroke-miterlimit="10" points="8.83,-9.0165 -8.83,-9.0165 0,9.0165
+    			"/>
+    		</g>
+    	</svg>
+    
+      </a>
 
     <button class="navbar-toggler navbar-toggler-right" type="button" (click)="navbarCollapsed = !navbarCollapsed"
             [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,32 +29,21 @@
     <div class="navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/about']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">About</a>
+          <a class="nav-link" [routerLink]="['/about']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">
+              <span class="nav-link-box">ABOUT</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/art']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">Art</a>
+          <a class="nav-link" [routerLink]="['/art']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">
+              <span class="nav-link-box">ART</span>
+          </a>
         </li>            
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/code']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">Code</a>
+          <a class="nav-link" [routerLink]="['/code']" [routerLinkActive]="['active']" (click)="navbarCollapsed = true">
+              <span class="nav-link-box">CODE</span>
+          </a>
         </li>
       </ul>
-
-      <span class="github-buttons d-none d-lg-inline">
-        <a class="github-button"
-           href="https://github.com/ng-bootstrap/ng-bootstrap"
-           target="_blank"
-           data-style="mega"
-           data-count-href="/ng-bootstrap/ng-bootstrap/stargazers"
-           data-count-api="/repos/ng-bootstrap/ng-bootstrap#stargazers_count"
-           data-count-aria-label="# stargazers on GitHub"
-           aria-label="Star ng-bootstrap/ng-bootstrap on GitHub">Star</a>
-        <a href="https://twitter.com/intent/tweet?button_hashtag=ngbootstrap"
-           class="twitter-hashtag-button"
-           data-size="large"
-           data-text="I&#39;m checking out ng-bootstrap, THE Angular UI framework for Bootstrap CSS"
-           data-url="https://ng-bootstrap.github.io"
-           data-show-count="true">Tweet #ngbootstrap</a>
-      </span>
     </div>
   </header>
 </div>
