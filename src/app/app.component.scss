@@ -1,70 +1,29 @@
-html {
-  position: relative;
-  min-height: 100%;
-}
+ aw-header, main, aw-footer{
+     position: relative;
+ }
+ 
+ #backgroundSVG, #headerSVG{
 
-body{
-	background-color: #333;
-// 	background: url('./assets/images/background2.png');
-	/*background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='99' height='80' viewbox='0 0 99 80'><linearGradient id='gradient'><stop offset='0%' stop-color='#F00'/><stop offset='100%' stop-color='#fcc'/></linearGradient><rect transform='translate(-10) rotate(45 30 140)' fill='url(#gradient)' x='0' y='0' width='99' height='80'/></svg>");
-	*/
-	background-size: 60rem 60rem;
-
-	color: #FFF;
-
+     position: fixed;
      
-     
-     aw-header, main, aw-footer{
-         position: relative;
+     top:0;
+     bottom:0;
+     left:0;
+     right:0;
+     width: 100%;
+         
+     .triangleColour{
+        transition: fill 1.5s linear 0.5s;
+     }    
+         
+     .triangleColour0:nth-of-type(odd){
+         transition: fill 3s;
      }
      
-     #backgroundSVG{
-
-         position: fixed;
-         
-         top:0;
-         bottom:0;
-         left:0;
-         right:0;
-         height: 100%;
-         width: 100%;
-             
-         .triangleColour{
-            transition: fill 1.5s linear 0.5s;
-         }    
-             
-         .triangleColour0:nth-of-type(odd){
-             transition: fill 3s;
-         }
-         
-         .triangleColour0:nth-of-type(even){
-             transition: fill .5s linear 1s;
-         }
-     }
-     
-     #headerSVG{
-         
-        position: fixed;
-         
-         top:0;
-         bottom:0;
-         left:0;
-         right:0;
-         height: 6rem;
-         width: 100%;
-         
-         
-        .triangleColour{
-            transition: fill 1.5s linear 0.5s;
-         }    
-             
-         .triangleColour0:nth-of-type(odd){
-             transition: fill 3s;
-         }
-         
-         .triangleColour0:nth-of-type(even){
-             transition: fill .5s linear 1s;
-         }
-         
+     .triangleColour0:nth-of-type(even){
+         transition: fill .5s linear 1s;
      }
  }
+ 
+ #headerSVG{ height: 6rem; }
+ #backgroundSVG{ height: 100%; }

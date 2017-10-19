@@ -1,3 +1,5 @@
+import jss from 'jss';
+
 import { Injectable } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -30,8 +32,8 @@ export class BackgroundGeneratorService {
   
   // Change the background colours to shades of a base colour given by the page
   
-  public colourChange(bgColour: string =      'hsl(0, 0%, 50%',
-                      textColour: string =    'hsl(0, 0%, 100%',
+  public colourChange(bgColour: string =      'hsl(0, 0%, 50%)',
+                      textColour: string =    'hsl(0, 0%, 100%)',
                       accentColour: string =  'hsl(90, 90%, 60%)'): void{
     
     var bgAdjustments = [0, -5, 10, 5];

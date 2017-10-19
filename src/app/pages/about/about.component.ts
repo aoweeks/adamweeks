@@ -12,7 +12,7 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.backgroundGeneratorService.colourChange('hsl(112, 80%, 70%');
+    this.backgroundGeneratorService.colourChange('hsl(112, 80%, 70%)', 'hsl(112, 80%, 15%)');
   }
 
 }

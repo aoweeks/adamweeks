@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.backgroundGeneratorService.colourChange( 'hsl(0, 79%, 50%)' );
+    this.backgroundGeneratorService.colourChange( 'hsl(0, 79%, 50%)');
   }
 
 }
