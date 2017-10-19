@@ -15,6 +15,7 @@ import { FooterComponent } from './sections/footer/footer.component';
 import { LandingComponent } from './pages/home/landing/landing.component';
 import { ArtGalleryComponent } from './pages/art-gallery/art-gallery.component';
 import { CodeGalleryComponent } from './pages/code-gallery/code-gallery.component';
+import { InfoComponent } from './pages/home/info/info.component';
 
 
 
@@ -28,7 +29,8 @@ import { CodeGalleryComponent } from './pages/code-gallery/code-gallery.componen
     FooterComponent,
     LandingComponent,
     ArtGalleryComponent,
-    CodeGalleryComponent
+    CodeGalleryComponent,
+    InfoComponent
   ],
   imports: [
     AppRouting,
