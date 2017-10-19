@@ -14,6 +14,7 @@ import { HeaderComponent } from './sections/header/header.component';
 import { FooterComponent } from './sections/footer/footer.component';
 import { LandingComponent } from './pages/home/landing/landing.component';
 import { ArtGalleryComponent } from './pages/art-gallery/art-gallery.component';
+import { CodeGalleryComponent } from './pages/code-gallery/code-gallery.component';
 
 
 
@@ -26,7 +27,8 @@ import { ArtGalleryComponent } from './pages/art-gallery/art-gallery.component';
     HeaderComponent,
     FooterComponent,
     LandingComponent,
-    ArtGalleryComponent
+    ArtGalleryComponent,
+    CodeGalleryComponent
   ],
   imports: [
     AppRouting,
