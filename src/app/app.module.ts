@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HeaderComponent } from './sections/header/header.component';
 import { FooterComponent } from './sections/footer/footer.component';
+import { LandingComponent } from './pages/home/landing/landing.component';
 
 
 
@@ -22,7 +23,8 @@ import { FooterComponent } from './sections/footer/footer.component';
     HomeComponent,
     NotFoundComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LandingComponent
   ],
   imports: [
     AppRouting,
