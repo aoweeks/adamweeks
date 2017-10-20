@@ -1,16 +1,12 @@
 import jss from 'jss';
+import nested from 'jss-nested';
 
 import { Injectable } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Injectable()
 export class BackgroundGeneratorService {
   
-  colours: any[] = [];
-  darkColours: any[] = []
-  
-  accentColours: any[] = [];
-  
+
   textColour: string;
   
   browserOffset = {
@@ -20,9 +16,23 @@ export class BackgroundGeneratorService {
     prevY: 0
   };
   
-  constructor(private sanitizer: DomSanitizer) {
+  styleSheets: any[] = [];
+  
+  
+  
+  constructor() {
     
+    /* Set up JSS stuff*/
+    jss.use(nested());
+    
+    const createGenerateClassName = () => {
+      return (rule) => rule.key;
+    }
+    
+    jss.setup({createGenerateClassName});
   }
+  
+  
   
   // Remember the scroll pos when navigating to new page
   public newPage(){
@@ -30,21 +40,103 @@ export class BackgroundGeneratorService {
       this.browserOffset.prevY += this.browserOffset.currentY;
   }
   
+  
+  
   // Change the background colours to shades of a base colour given by the page
   
-  public colourChange(bgColour: string =      'hsl(0, 0%, 50%)',
-                      textColour: string =    'hsl(0, 0%, 100%)',
-                      accentColour: string =  'hsl(90, 90%, 60%)'): void{
+  public colourChange( page: string = '',
+                       bgColour: string = '',
+                       textColour: string = '',
+                       accentColour: string = '' ): void{
     
-    var bgAdjustments = [0, -5, 10, 5];
-    var bgDarkAdjustments = [-20, -25, -10, -15]; //TEMP. hashrocket function here.
-    var accentAdjustments = [0, 5, -5];
+    let bgAdjustments = [0, -5, 10, 5];
+    let bgDarkAdjustments = [-20, -25, -10, -15]; //TEMP. hashrocket function here.
+    let accentAdjustments = [0, 5, -5];
     
-    this.colours = this.findShades(bgColour, bgAdjustments);
-    this.darkColours = this.findShades(bgColour, bgDarkAdjustments);
-    this.accentColours = this.findShades(accentColour, accentAdjustments);
-    this.textColour = textColour;
+    // if this.styleSheets[page]{
+    //   delete this.styleSheets[page];
+    // }
+    
+    this.styleSheets[page] = jss.createStyleSheet();
+    
+    if (bgColour){
+      let colours = this.findShades(bgColour, bgAdjustments);
+      let darkColours = this.findShades(bgColour, bgDarkAdjustments);
+      
+      this.styleSheets[page].addRules({
+        'backgroundSVG': {
+          '& .triangleColour0': {
+            fill: colours[0]
+          },
+          '& .triangleColour1': {
+            fill: colours[1]
+          },
+          '& .triangleColour2': {
+            fill: colours[2]
+          },
+          '& .triangleColour3': {
+            fill: colours[3]
+          }
+        },
+        'headerSVG': {
+          '& .triangleColour0': {
+            fill: darkColours[0]
+          },
+          '& .triangleColour1': {
+            fill: darkColours[1]
+          },
+          '& .triangleColour2': {
+            fill: darkColours[2]
+          },
+          '& .triangleColour3': {
+            fill: darkColours[3]
+          }
+        }
+      });
+      
+  
+      
+      console.log(this.styleSheets[page]);
+    }
+    
+    // if()
+    // this.styleSheets[page].addRules({
+    //   ''
+    // });
+    
+    
+    if (accentColour){
+      let accentColours = this.findShades( accentColour, accentAdjustments);
+      this.styleSheets[page].addRules({
+        'accentColourStroke': {
+          stroke: accentColours[0]
+        }
+      });
+      
+    }
+    
+    
+    if (textColour){
+      this.textColour = textColour;
+      
+    }
+    
+    
+    this.styleSheets[page].attach();
+    
+    
   }
+  
+  
+  /* Triggered by a page that changes the colour scheme, when it is exited,
+   * clears relevant stylesheet from DOM and registry. */
+  public clearColours(page: string){
+    this.styleSheets[page].detach();
+    jss.removeStyleSheet(this.styleSheets[page]);
+  }
+
+
+
 
   // Return how much to offset the background y-axis by, which is the current
   // scroll pos + how much the scroll pos was when previous links clicked
@@ -72,20 +164,11 @@ export class BackgroundGeneratorService {
     
     for(var adjustment of lightnessAdjustments){
       newShades.push(
-        this.sanitizer.bypassSecurityTrustStyle(
-          hueAndSaturation + ', ' + (lightness + adjustment).toString() + '%'
-        )
+          hueAndSaturation + ', ' + (lightness + adjustment).toString() + '%)'
       );
     }
     
     return newShades;
   }
   
-  private scrollHandler() {
-    // Do whatever
-    
-    // console.log('hpo');
-    // this.yOffset = window.scrollY;
-    // requestAnimationFrame(this.scrollHandler);
-  }
 }

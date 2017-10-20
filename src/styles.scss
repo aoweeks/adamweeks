@@ -1,5 +1,4 @@
-$primaryAccent: #F2642A;
-
+@import './variables.scss';
 
 @font-face {
   font-family: 'Jaapokki';
@@ -12,4 +11,21 @@ $primaryAccent: #F2642A;
 .naughty-o{
 
 	margin-left: -0.05em;
+}
+
+.accentColourStroke{
+  stroke: $accentColour;
+}
+
+.accentColour{
+  color: $accentColour;
+  
+  &:before{
+    border-color: $accentColour;
+  }
+  
+  &:after{
+    border-color: $accentColour;
+  }
+  
 }

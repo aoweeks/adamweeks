@@ -2,7 +2,7 @@
      position: relative;
  }
  
- #backgroundSVG, #headerSVG{
+ .backgroundSVG, .headerSVG{
 
      position: fixed;
      
@@ -25,5 +25,5 @@
      }
  }
  
- #headerSVG{ height: 6rem; }
- #backgroundSVG{ height: 100%; }
+ .headerSVG{ height: 6rem; }
+ .backgroundSVG{ height: 100%; }
