@@ -15,10 +15,12 @@
 
 .accentColourStroke{
   stroke: $accentColour;
+  transition: stroke 3s;
 }
 
 .accentColour{
   color: $accentColour;
+  transition: color 3s;
   
   &:before{
     border-color: $accentColour;

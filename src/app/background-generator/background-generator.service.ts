@@ -133,6 +133,7 @@ export class BackgroundGeneratorService {
   public clearColours(page: string){
     this.styleSheets[page].detach();
     jss.removeStyleSheet(this.styleSheets[page]);
+    delete this.styleSheets[page];
   }
 
 

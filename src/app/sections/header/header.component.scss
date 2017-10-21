@@ -24,10 +24,14 @@
         	margin-left: 0.5rem;
         	
         	.triangle{
-            	transition: transform 0.5s ease-out;
+            	transition: transform 0.5s ease-out, stroke 1s;
             }
             
             &:hover{
+                
+                .triangle{
+                    transition: transform 0.5s ease-out, stroke 0s;
+                }
                 
                 #triangle-1{
                 	stroke: #FFF;
