@@ -2,6 +2,7 @@ import jss from 'jss';
 import nested from 'jss-nested';
 
 import { Injectable } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Injectable()
 export class BackgroundGeneratorService {
@@ -18,11 +19,12 @@ export class BackgroundGeneratorService {
   
   styleSheets: any[] = [];
   
+  bgTransitions: any[] = [];
   
   
-  constructor() {
+  constructor(private sanitizer: DomSanitizer) {
     
-    /* Set up JSS stuff*/
+    // Set up JSS stuff
     jss.use(nested());
     
     const createGenerateClassName = () => {
@@ -30,6 +32,13 @@ export class BackgroundGeneratorService {
     }
     
     jss.setup({createGenerateClassName});
+    
+    // Generate transitions for background triangles
+    for(let i = 0; i < 600; i++){
+      this.bgTransitions.push( this.getRandomTransition() );
+    }
+    
+    console.log(this.bgTransitions);
   }
   
   
@@ -52,6 +61,8 @@ export class BackgroundGeneratorService {
     let bgAdjustments = [0, -5, 10, 5];
     let bgDarkAdjustments = [-20, -25, -10, -15]; //TEMP. hashrocket function here.
     let accentAdjustments = [0, 5, -5];
+    
+    textColour += '!important';
     
     // if this.styleSheets[page]{
     //   delete this.styleSheets[page];
@@ -108,8 +119,19 @@ export class BackgroundGeneratorService {
     if (accentColour){
       let accentColours = this.findShades( accentColour, accentAdjustments);
       this.styleSheets[page].addRules({
-        'accentColourStroke': {
-          stroke: accentColours[0]
+        
+        'nav-logo': {
+        
+          '& .accentColourStroke': {
+            stroke: accentColours[0]
+          },
+          
+          '&:hover': {
+              
+            '& .accentColourStroke': {
+              stroke: textColour
+            }
+          }
         }
       });
       
@@ -128,9 +150,23 @@ export class BackgroundGeneratorService {
   }
   
   
+  
+  public getRandomTransition(): any{
+    let duration: number;
+    let delay: number;
+    
+    duration = (Math.random() * 2.5) + 0.5;
+    delay = Math.random() * (3 - duration + Math.random());
+    
+    let output = `fill ${duration}s linear ${delay}s`;
+    //console.log(output);
+    
+    return this.sanitizer.bypassSecurityTrustStyle(output);
+  }
+  
   /* Triggered by a page that changes the colour scheme, when it is exited,
    * clears relevant stylesheet from DOM and registry. */
-  public clearColours(page: string){
+  public clearColours(page: string): void{
     this.styleSheets[page].detach();
     jss.removeStyleSheet(this.styleSheets[page]);
     delete this.styleSheets[page];
@@ -165,7 +201,7 @@ export class BackgroundGeneratorService {
     
     for(var adjustment of lightnessAdjustments){
       newShades.push(
-          hueAndSaturation + ', ' + (lightness + adjustment).toString() + '%)'
+          hueAndSaturation + ', ' + (lightness + adjustment).toString() + '%) !important'
       );
     }
     
