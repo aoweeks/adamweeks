@@ -11,6 +11,8 @@
      left:0;
      right:0;
      width: 100%;
+     
+     height: 100%;
          
     //  .triangleColour{
     //     transition: fill 1.5s linear 0.5s;
@@ -79,16 +81,12 @@
     //  .triangleColour3:nth-of-type(5n){
     //      transition: fill 0.9s linear 2s;
     //  }
- }
- 
- .headerSVG {
-   
-   height: 6rem;
- 
-   .triangleColour0{
-     fill: hsl(0, 0%, 16%);
-   }
-   
+
+
+
    
  }
- .backgroundSVG{ height: 100%; }
+ 
+ .headerSVG{
+  height: 6rem;
+ }

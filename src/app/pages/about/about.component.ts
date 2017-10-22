@@ -6,10 +6,10 @@ import { BackgroundGeneratorService } from '../../background-generator/backgroun
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements OnInit, OnDestroy {
   
 
-  constructor(private backgroundGeneratorService: BackgroundGeneratorService){
+  constructor(  private backgroundGeneratorService: BackgroundGeneratorService ){
   }
 
   ngOnInit() {

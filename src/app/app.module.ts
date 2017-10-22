@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InlineSVGModule } from 'ng-inline-svg';
+
 
 import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
@@ -36,7 +38,8 @@ import { InfoComponent } from './pages/home/info/info.component';
     AppRouting,
     NgbModule.forRoot(),
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    InlineSVGModule
   ],
   providers: [ BackgroundGeneratorService ],
   bootstrap: [AppComponent]

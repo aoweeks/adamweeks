@@ -58,8 +58,8 @@ export class BackgroundGeneratorService {
                        textColour: string = '',
                        accentColour: string = '' ): void{
     
-    let bgAdjustments = [0, -5, 10, 5];
-    let bgDarkAdjustments = [-20, -25, -10, -15]; //TEMP. hashrocket function here.
+    let bgAdjustments = [0, 1, -1, 2, -2, 3, -3];
+    let bgDarkAdjustments = [-20, 21, -21, 22, -22, 23, -23]; //TEMP. hashrocket function here.
     let accentAdjustments = [0, 5, -5];
     
     textColour += '!important';
@@ -74,19 +74,30 @@ export class BackgroundGeneratorService {
       let colours = this.findShades(bgColour, bgAdjustments);
       let darkColours = this.findShades(bgColour, bgDarkAdjustments);
       
+      
+      
       this.styleSheets[page].addRules({
         'backgroundSVG': {
-          '& .triangleColour0': {
+          '& .bgtc0': {
             fill: colours[0]
           },
-          '& .triangleColour1': {
+          '& .bgtc1': {
             fill: colours[1]
           },
-          '& .triangleColour2': {
+          '& .bgtc2': {
             fill: colours[2]
           },
-          '& .triangleColour3': {
+          '& .bgtc3': {
             fill: colours[3]
+          },
+          '& .bgtc4': {
+            fill: colours[4]
+          },
+          '& .bgtc5': {
+            fill: colours[5]
+          },
+          '& .bgtc6': {
+            fill: colours[6]
           }
         },
         'headerSVG': {
@@ -149,14 +160,15 @@ export class BackgroundGeneratorService {
     
   }
   
-  
+  /*  Returns a (sanitized) string with a CSS fill transition, with random
+  *   duration and delay, that totals no more than 3 seconds. */
   
   public getRandomTransition(): any{
     let duration: number;
     let delay: number;
     
-    duration = (Math.random() * 2.5) + 0.5;
-    delay = Math.random() * (3 - duration + Math.random());
+    duration = (Math.random() * 1.5) + 0.5;
+    delay = Math.random() * (2 - duration + Math.random());
     
     let output = `fill ${duration}s linear ${delay}s`;
     //console.log(output);
