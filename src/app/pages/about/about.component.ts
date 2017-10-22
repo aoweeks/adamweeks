@@ -8,12 +8,13 @@ import { BackgroundGeneratorService } from '../../background-generator/backgroun
 })
 export class AboutComponent implements OnInit, OnDestroy {
   
+  private page = 'about';
 
   constructor(  private backgroundGeneratorService: BackgroundGeneratorService ){
   }
 
   ngOnInit() {
-    var pageName: string =      'about';
+    var pageName: string =      this.page;
     var bgBaseColour: string =  'hsl(112, 80%, 70%)';
     var textColour: string =    'hsl(112, 80%, 15%)';
     var accentColour: string =  'hsl(222, 40%, 40%)';
@@ -26,6 +27,6 @@ export class AboutComponent implements OnInit, OnDestroy {
 
 
   ngOnDestroy() {
-    this.backgroundGeneratorService.clearColours('about');
+    this.backgroundGeneratorService.clearColours( this.page );
   }
 }

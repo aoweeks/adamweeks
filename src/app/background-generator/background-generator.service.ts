@@ -59,7 +59,7 @@ export class BackgroundGeneratorService {
                        accentColour: string = '' ): void{
     
     let bgAdjustments = [0, 1, -1, 2, -2, 3, -3];
-    let bgDarkAdjustments = [-20, 21, -21, 22, -22, 23, -23]; //TEMP. hashrocket function here.
+    let bgDarkAdjustments = [-20, -19, -21, -18, -22, -17, -23]; //TEMP. hashrocket function here.
     let accentAdjustments = [0, 5, -5];
     
     textColour += '!important';
@@ -101,17 +101,26 @@ export class BackgroundGeneratorService {
           }
         },
         'headerSVG': {
-          '& .triangleColour0': {
+          '& .bgtc0': {
             fill: darkColours[0]
           },
-          '& .triangleColour1': {
+          '& .bgtc1': {
             fill: darkColours[1]
           },
-          '& .triangleColour2': {
+          '& .bgtc2': {
             fill: darkColours[2]
           },
-          '& .triangleColour3': {
+          '& .bgtc3': {
             fill: darkColours[3]
+          },
+          '& .bgtc4': {
+            fill: darkColours[4]
+          },
+          '& .bgtc5': {
+            fill: darkColours[5]
+          },
+          '& .bgtc6': {
+            fill: darkColours[6]
           }
         }
       });
@@ -155,7 +164,7 @@ export class BackgroundGeneratorService {
     }
     
     
-    this.styleSheets[page].attach();
+    setTimeout( () => { this.styleSheets[page].attach(); }, 500);
     
     
   }
@@ -179,9 +188,11 @@ export class BackgroundGeneratorService {
   /* Triggered by a page that changes the colour scheme, when it is exited,
    * clears relevant stylesheet from DOM and registry. */
   public clearColours(page: string): void{
-    this.styleSheets[page].detach();
-    jss.removeStyleSheet(this.styleSheets[page]);
-    delete this.styleSheets[page];
+    setTimeout( () => {
+      this.styleSheets[page].detach();
+      jss.removeStyleSheet(this.styleSheets[page]);
+      delete this.styleSheets[page];
+    }, 500);
   }
 
 
