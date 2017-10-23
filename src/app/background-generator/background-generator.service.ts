@@ -19,8 +19,6 @@ export class BackgroundGeneratorService {
   
   styleSheets: any[] = [];
   
-  bgTransitions: any[] = [];
-  
   
   constructor(private sanitizer: DomSanitizer) {
     
@@ -32,13 +30,6 @@ export class BackgroundGeneratorService {
     }
     
     jss.setup({createGenerateClassName});
-    
-    // Generate transitions for background triangles
-    for(let i = 0; i < 600; i++){
-      this.bgTransitions.push( this.getRandomTransition() );
-    }
-    
-    console.log(this.bgTransitions);
   }
   
   
@@ -168,22 +159,7 @@ export class BackgroundGeneratorService {
     
     
   }
-  
-  /*  Returns a (sanitized) string with a CSS fill transition, with random
-  *   duration and delay, that totals no more than 3 seconds. */
-  
-  public getRandomTransition(): any{
-    let duration: number;
-    let delay: number;
-    
-    duration = (Math.random() * 1.5) + 0.5;
-    delay = Math.random() * (2 - duration + Math.random());
-    
-    let output = `fill ${duration}s linear ${delay}s`;
-    //console.log(output);
-    
-    return this.sanitizer.bypassSecurityTrustStyle(output);
-  }
+
   
   /* Triggered by a page that changes the colour scheme, when it is exited,
    * clears relevant stylesheet from DOM and registry. */
