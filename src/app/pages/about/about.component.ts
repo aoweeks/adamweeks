@@ -15,7 +15,7 @@ export class AboutComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     var pageName: string =      this.page;
-    var bgBaseColour: string =  'hsl(112, 80%, 70%)';
+    var bgBaseColour: string =  'hsl(300, 40%, 29%)';
     var textColour: string =    'hsl(112, 80%, 15%)';
     var accentColour: string =  'hsl(222, 40%, 40%)';
     
