@@ -1,11 +1,12 @@
-<div class="backgroundSVG" z-index="-2" [inlineSVG]="'assets/images/background.svg'"></div>
+<div class="backgroundSVG" z-index="-2"
+  [inlineSVG]="'assets/images/background.svg'"></div>
 
-<!--<div class="headerSVG" z-index="-1" [inlineSVG]="'assets/images/background.svg'"></div>-->
+<!--<div class="headerSVG" z-index="-1"
+  [inlineSVG]="'assets/images/background.svg'"></div>-->
 
 <aw-header></aw-header>
 
-<main class="container-fluid"
-  [style.color]="backgroundGeneratorService.textColour"
+<main class="container-fluid textColour"
   [@routerTransition]="getState(o)">
   
   <router-outlet #o="outlet"></router-outlet>

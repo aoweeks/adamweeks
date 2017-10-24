@@ -18,6 +18,7 @@ import { LandingComponent } from './pages/home/landing/landing.component';
 import { ArtGalleryComponent } from './pages/art-gallery/art-gallery.component';
 import { CodeGalleryComponent } from './pages/code-gallery/code-gallery.component';
 import { InfoComponent } from './pages/home/info/info.component';
+import { SwitchComponent } from './shared-components/switch/switch.component';
 
 
 
@@ -32,7 +33,8 @@ import { InfoComponent } from './pages/home/info/info.component';
     LandingComponent,
     ArtGalleryComponent,
     CodeGalleryComponent,
-    InfoComponent
+    InfoComponent,
+    SwitchComponent
   ],
   imports: [
     AppRouting,

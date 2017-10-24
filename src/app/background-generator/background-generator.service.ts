@@ -7,8 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Injectable()
 export class BackgroundGeneratorService {
   
-
-  textColour: string;
+  private funMode: boolean = false;
   
   browserOffset = {
     currentX: 0,
@@ -32,6 +31,16 @@ export class BackgroundGeneratorService {
     jss.setup({createGenerateClassName});
   }
   
+  //=====GETTERS AND SETTERS=======
+  
+  
+  public getFunMode(): boolean{
+    return this.funMode;
+  }
+  
+  public toggleFunMode(): void{
+    this.funMode = !this.funMode;
+  }
   
   
   // Remember the scroll pos when navigating to new page
@@ -46,117 +55,129 @@ export class BackgroundGeneratorService {
   
   public colourChange( page: string = '',
                        bgColour: string = '',
-                       textColour: string = '',
+                       textColour: any = '',
                        accentColour: string = '' ): void{
-    
-    let bgAdjustments = [0, 1, -1, 2, -2, 3, -3];
-    let bgDarkAdjustments = [-20, -19, -21, -18, -22, -17, -23]; //TEMP. hashrocket function here.
-    let accentAdjustments = [0, 5, -5];
-    
-    textColour += '!important';
-    
-    // if this.styleSheets[page]{
-    //   delete this.styleSheets[page];
-    // }
-    
-    this.styleSheets[page] = jss.createStyleSheet();
-    
-    if (bgColour){
-      let colours = this.findShades(bgColour, bgAdjustments);
-      let darkColours = this.findShades(bgColour, bgDarkAdjustments);
+                         
+    if(this.funMode) {
       
+      let bgAdjustments = [0, -1, 1, -2, 2, -3, 3];
+      let bgDarkAdjustments = [-20, -21, -19, -22, -18, -23, -17]; //TEMP. hashrocket function here.
+      let accentAdjustments = [0, 5, -5];
       
+      textColour += '!important';
       
-      this.styleSheets[page].addRules({
-        'backgroundSVG': {
-          '& .bgtc0': {
-            fill: colours[0]
-          },
-          '& .bgtc1': {
-            fill: colours[1]
-          },
-          '& .bgtc2': {
-            fill: colours[2]
-          },
-          '& .bgtc3': {
-            fill: colours[3]
-          },
-          '& .bgtc4': {
-            fill: colours[4]
-          },
-          '& .bgtc5': {
-            fill: colours[5]
-          },
-          '& .bgtc6': {
-            fill: colours[6]
-          }
-        },
-        'headerSVG': {
-          '& .bgtc0': {
-            fill: darkColours[0]
-          },
-          '& .bgtc1': {
-            fill: darkColours[1]
-          },
-          '& .bgtc2': {
-            fill: darkColours[2]
-          },
-          '& .bgtc3': {
-            fill: darkColours[3]
-          },
-          '& .bgtc4': {
-            fill: darkColours[4]
-          },
-          '& .bgtc5': {
-            fill: darkColours[5]
-          },
-          '& .bgtc6': {
-            fill: darkColours[6]
-          }
-        }
-      });
+      // if this.styleSheets[page]{
+      //   delete this.styleSheets[page];
+      // }
       
-  
+      this.styleSheets[page] = jss.createStyleSheet();
       
-      console.log(this.styleSheets[page]);
-    }
-    
-    // if()
-    // this.styleSheets[page].addRules({
-    //   ''
-    // });
-    
-    
-    if (accentColour){
-      let accentColours = this.findShades( accentColour, accentAdjustments);
-      this.styleSheets[page].addRules({
+      if (bgColour){
+        let colours = this.findShades(bgColour, bgAdjustments);
+        let darkColours = this.findShades(bgColour, bgDarkAdjustments);
         
-        'nav-logo': {
         
-          '& .accentColourStroke': {
-            stroke: accentColours[0]
+        
+        this.styleSheets[page].addRules({
+          'backgroundSVG': {
+            '& .bgtc0': {
+              fill: colours[0]
+            },
+            '& .bgtc1': {
+              fill: colours[1]
+            },
+            '& .bgtc2': {
+              fill: colours[2]
+            },
+            '& .bgtc3': {
+              fill: colours[3]
+            },
+            '& .bgtc4': {
+              fill: colours[4]
+            },
+            '& .bgtc5': {
+              fill: colours[5]
+            },
+            '& .bgtc6': {
+              fill: colours[6]
+            }
           },
-          
-          '&:hover': {
-              
-            '& .accentColourStroke': {
-              stroke: textColour
+          'headerSVG': {
+            '& .bgtc0': {
+              fill: darkColours[0]
+            },
+            '& .bgtc1': {
+              fill: darkColours[1]
+            },
+            '& .bgtc2': {
+              fill: darkColours[2]
+            },
+            '& .bgtc3': {
+              fill: darkColours[3]
+            },
+            '& .bgtc4': {
+              fill: darkColours[4]
+            },
+            '& .bgtc5': {
+              fill: darkColours[5]
+            },
+            '& .bgtc6': {
+              fill: darkColours[6]
             }
           }
-        }
-      });
+        });
+        
+    
+        
+        console.log(this.styleSheets[page]);
+      }
+      
+      // if()
+      // this.styleSheets[page].addRules({
+      //   ''
+      // });
+      
+      
+      if (accentColour){
+        let accentColours = this.findShades( accentColour, accentAdjustments);
+        this.styleSheets[page].addRules({
+          
+          'nav-logo': {
+          
+            '& .accentColourStroke': {
+              stroke: accentColours[0]
+            },
+            
+            '&:hover': {
+                
+              '& .accentColourStroke': {
+                stroke: textColour
+              }
+            }
+          }
+        });
+        
+      }
+      
+      
+      if (textColour){
+        textColour = this.sanitizer.bypassSecurityTrustStyle(textColour);
+        this.styleSheets[page].addRules({
+          'textColour': {
+            color: textColour
+          }
+        });
+        
+      }
+      
+      
+      // If first page loaded
+      setTimeout( () => { this.styleSheets[page].attach(); }, 500);
+      // Else
+      //  do instantly
+    
       
     }
-    
-    
-    if (textColour){
-      this.textColour = textColour;
-      
-    }
-    
-    
-    setTimeout( () => { this.styleSheets[page].attach(); }, 500);
-    
     
   }
 
@@ -164,11 +185,13 @@ export class BackgroundGeneratorService {
   /* Triggered by a page that changes the colour scheme, when it is exited,
    * clears relevant stylesheet from DOM and registry. */
   public clearColours(page: string): void{
-    setTimeout( () => {
-      this.styleSheets[page].detach();
-      jss.removeStyleSheet(this.styleSheets[page]);
-      delete this.styleSheets[page];
-    }, 500);
+    if(this.styleSheets[page]){
+      setTimeout( () => {
+        this.styleSheets[page].detach();
+        jss.removeStyleSheet(this.styleSheets[page]);
+        delete this.styleSheets[page];
+      }, 500);
+    }
   }
 
 
