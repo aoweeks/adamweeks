@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackgroundGeneratorService } from '../../background-generator/background-generator.service';
 
 @Component({
   selector: 'aw-switch',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SwitchComponent implements OnInit {
 
-  constructor() { }
+  constructor( private backgroundGeneratorService: BackgroundGeneratorService ) { }
 
   ngOnInit() {
   }

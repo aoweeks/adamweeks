@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BackgroundGeneratorService } from '../../background-generator/background-generator.service';
 
 @Component({
   selector: 'aw-footer',
@@ -8,7 +7,7 @@ import { BackgroundGeneratorService } from '../../background-generator/backgroun
 })
 export class FooterComponent implements OnInit {
 
-  constructor( private backgroundGeneratorService: BackgroundGeneratorService ) { }
+  constructor() { }
 
   ngOnInit() {
   }

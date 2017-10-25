@@ -4,9 +4,30 @@ label{
     
     cursor: pointer;
     
+    font-size: 0.5rem;
+    
+    .ctional{
+        opacity: 1.0;
+        width: 2.1rem;
+        display: inline-block;
+        
+        transition: width 0.4s ease-in, opacity 0.2s linear 0.4s;
+    }    
+    
+    input[type="checkbox"]:checked ~  .ctional{
+        opacity: 0.0;
+        width: 0;
+    
+        transition: width 0.4s ease-in 0.2s, opacity 0.2s linear;
+    }
+    
     SVG{
-        height: 2rem;
+        height: 1.75rem;
         width: auto;
+        
+        fill: #FFF;
+        stroke: #FFF;
+        color: #FFF;
     }
     
     
@@ -19,12 +40,12 @@ label{
     
     .line{
         fill:none;
-        stroke:#FFF;
+        stroke: currentColor;
         stroke-width:2.5;
         stroke-miterlimit:10;
     }
     
-    input[type="checkbox"]:checked + svg{
+    input[type="checkbox"]:checked ~ svg{
     
     	.toggle{
     	    -ms-transform: translateX(27px); /* IE 9 */

@@ -1,10 +1,5 @@
 <footer class="bd-footer text-muted">
   <div class="container-fluid">
-   	<label> Fun mode <!-- [class.unselected]="!artListService.getFilterValue('media', medium)">-->
-		  <input type="checkbox" [checked]="backgroundGeneratorService.getFunMode()"
-			  (change)="backgroundGeneratorService.toggleFunMode()" />
-		</label>
+    <aw-switch class="float-xs-right"></aw-switch>
   </div>
-  
-  <aw-switch></aw-switch>
 </footer>
