@@ -1,0 +1,41 @@
+@import '../../../variables.scss';
+
+label{
+    
+    cursor: pointer;
+    
+    SVG{
+        height: 2rem;
+        width: auto;
+    }
+    
+    
+    input[type="checkbox"]{
+    	opacity: 0;
+    	display: none;
+    	vertical-align: top;
+    	z-index: 100;
+    }
+    
+    .line{
+        fill:none;
+        stroke:#FFF;
+        stroke-width:2.5;
+        stroke-miterlimit:10;
+    }
+    
+    input[type="checkbox"]:checked + svg{
+    
+    	.toggle{
+    	    -ms-transform: translateX(27px); /* IE 9 */
+            -webkit-transform: translateX(27px); /* Safari */
+            transform: translateX(27px);
+            
+            stroke: $accentColour;
+    	}
+    }
+    
+    .toggle{
+        transition: all 0.5s ease-in;
+    }
+}

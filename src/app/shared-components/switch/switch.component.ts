@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-switch',
+  selector: 'aw-switch',
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.scss']
 })
