@@ -1,0 +1,15 @@
+#home-wrapper{
+    
+    
+    height: 100px;
+    width: 100%;
+    
+    aw-landing, aw-info{
+        display: block;
+        
+        height: calc(100vh - 6rem);
+        width: 100%;
+        
+        color: white !important;
+    }
+}

@@ -1,0 +1,38 @@
+#down-arrow{
+	display: inline-block;
+	align-self: flex-end;
+	position: fixed;
+
+	left: calc(50% - 1em);
+	height: auto;
+	width: 2em;
+
+	bottom: 0.5em;
+	
+	transform: rotate(180deg);
+}
+
+.bounce{
+	animation: bounce 1.75s ease-in-out infinite;
+	cursor: pointer;
+}
+
+.bounce:hover{
+	animation-play-state: paused;
+}
+
+.bounce:hover path{
+	fill: #F2642A;
+}
+
+@keyframes bounce{
+	0% {
+		transform: rotate(180deg) translateY(0em);
+	}
+	50% {
+		transform: rotate(180deg) translateY(2em);
+	}
+	100% {
+		transform: rotate(180deg) translateY(0em);
+	}
+}

@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'aw-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent{
 
+  @Output()
+  segmentChange: EventEmitter<string> = new EventEmitter<string>();
+  
   constructor() { }
 
-  ngOnInit() {
+  goToInfo(): void{
+    this.segmentChange.emit('info');
   }
-
 }
