@@ -59,7 +59,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   
   segmentChange(event){
     this.segment = event;
-    console.log(this.segment);
   }
   
   
@@ -67,6 +66,4 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.backgroundGeneratorService.clearColours( this.page );
   }
   
-  
-
 }
