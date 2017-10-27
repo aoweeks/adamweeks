@@ -21,6 +21,18 @@ export class LandingComponent{
     }
   }
   
+  @HostListener('wheel', ['$event'])
+  mouseWheelScroll(event: any): void {
+      console.log("Entered mouse wheel");
+      console.log(event);
+      if(event.deltaY > 0){
+        this.goToInfo();
+      }
+
+      // this.initPointX = event.PageX;
+      // this.initPointY = event.PageY;   
+  } 
+  
   
   constructor() { }
 

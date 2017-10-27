@@ -28,11 +28,11 @@ const slideLeft = [
     group([
       query(':enter', [
         style({ transform: 'translateX(100%)' }),
-        animate('500ms cubic-bezier(.75,-0.48,.26,1.52)', style({ transform: 'translateX(0%)' }))
+        animate('1s cubic-bezier(.75,-0.48,.26,1.52)', style({ transform: 'translateX(0%)' }))
       ], { optional: true }),
       query(':leave', [
         style({ transform: 'translateX(0%)' }),
-        animate('500ms cubic-bezier(.75,-0.48,.26,1.52)', style({ transform: 'translateX(-100%)' }))
+        animate('1s cubic-bezier(.75,-0.48,.26,1.52)', style({ transform: 'translateX(-100%)' }))
       ], { optional: true }),
     ])
   ];

@@ -45,7 +45,6 @@ export class BackgroundGeneratorService {
   
   // Remember the scroll pos when navigating to new page
   public newPage(){
-      console.log(this.browserOffset.currentY);
       this.browserOffset.prevY += this.browserOffset.currentY;
   }
   
@@ -128,8 +127,6 @@ export class BackgroundGeneratorService {
         });
         
     
-        
-        console.log(this.styleSheets[page]);
       }
       
       // if()
