@@ -7,7 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Injectable()
 export class BackgroundGeneratorService {
   
-  private funMode: boolean = false;
+  private funMode: boolean = true;
   
   browserOffset = {
     currentX: 0,
@@ -60,80 +60,40 @@ export class BackgroundGeneratorService {
     if(this.funMode) {
       
       let bgAdjustments = [0, -1, 1, -2, 2, -3, 3];
-      let bgDarkAdjustments = [-20, -21, -19, -22, -18, -23, -17]; //TEMP. hashrocket function here.
       let accentAdjustments = [0, 5, -5];
       
       textColour += '!important';
-      
-      // if this.styleSheets[page]{
-      //   delete this.styleSheets[page];
-      // }
-      
+
       this.styleSheets[page] = jss.createStyleSheet();
       
       if (bgColour){
         let colours = this.findShades(bgColour, bgAdjustments);
-        let darkColours = this.findShades(bgColour, bgDarkAdjustments);
-        
-        
         
         this.styleSheets[page].addRules({
-          'backgroundSVG': {
-            '& .bgtc0': {
-              fill: colours[0]
-            },
-            '& .bgtc1': {
-              fill: colours[1]
-            },
-            '& .bgtc2': {
-              fill: colours[2]
-            },
-            '& .bgtc3': {
-              fill: colours[3]
-            },
-            '& .bgtc4': {
-              fill: colours[4]
-            },
-            '& .bgtc5': {
-              fill: colours[5]
-            },
-            '& .bgtc6': {
-              fill: colours[6]
-            }
+          'bgtc0': {
+            fill: colours[0]
           },
-          'headerSVG': {
-            '& .bgtc0': {
-              fill: darkColours[0]
-            },
-            '& .bgtc1': {
-              fill: darkColours[1]
-            },
-            '& .bgtc2': {
-              fill: darkColours[2]
-            },
-            '& .bgtc3': {
-              fill: darkColours[3]
-            },
-            '& .bgtc4': {
-              fill: darkColours[4]
-            },
-            '& .bgtc5': {
-              fill: darkColours[5]
-            },
-            '& .bgtc6': {
-              fill: darkColours[6]
-            }
+          'bgtc1': {
+            fill: colours[1]
+          },
+          'bgtc2': {
+            fill: colours[2]
+          },
+          'bgtc3': {
+            fill: colours[3]
+          },
+          'bgtc4': {
+            fill: colours[4]
+          },
+          'bgtc5': {
+            fill: colours[5]
+          },
+          'bgtc6': {
+            fill: colours[6]
           }
         });
-        
     
       }
-      
-      // if()
-      // this.styleSheets[page].addRules({
-      //   ''
-      // });
-      
       
       if (accentColour){
         let accentColours = this.findShades( accentColour, accentAdjustments);

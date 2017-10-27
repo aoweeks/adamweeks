@@ -4,8 +4,8 @@
 	align-items: center;
 	justify-content: center;
 
-	top:0;
-	bottom:0;
+	top:6rem;
+	bottom:6rem;
 	left:0;
 	right:0;
 
@@ -82,21 +82,20 @@
 	width: 2em;
 
 	bottom: 0.5em;
-	
-	transform: rotate(180deg);
 }
 
 .bounce{
 	animation: bounce 1.75s ease-in-out infinite;
+	-webkit-backface-visibility: hidden;
 	cursor: pointer;
 }
 
 .bounce:hover{
 	animation-play-state: paused;
-}
-
-.bounce:hover path{
-	fill: #F2642A;
+ 	
+ 	path{
+		fill: #F2642A;
+ 	}
 }
 
 @keyframes bounce{
