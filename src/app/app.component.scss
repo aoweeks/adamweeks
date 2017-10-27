@@ -2,6 +2,10 @@ aw-header, main, aw-footer{
     position: relative;
 }
 
+main{
+ flex: 1 0 auto;
+}
+
 .backgroundSVG, .headerSVG{
 
     position: fixed;

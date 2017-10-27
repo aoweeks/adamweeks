@@ -8,31 +8,20 @@
        url('./assets/fonts/jaapokki-regular.ttf')  format('truetype') /* Safari, Android, iOS */
 }
 
-html, body{
-  height: 100%;
-}
-
-
-.naughty-o{
-
-	margin-left: -0.05em;
-}
-
-.accentColourStroke{
-  stroke: $accentColour;
-  transition: stroke 3s;
+html{
+  position: relative;
+  min-height: 100%;
+  
+  body{
+    margin-bottom: 6rem;
+  }
 }
 
 .accentColour{
   color: $accentColour;
-  transition: color 3s;
-  
-  &:before{
-    border-color: $accentColour;
-  }
-  
-  &:after{
-    border-color: $accentColour;
-  }
-  
+  stroke: $accentColour;
+}
+
+.accentFill{
+  fill: $accentColour;
 }

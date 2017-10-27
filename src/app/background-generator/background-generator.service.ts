@@ -96,22 +96,53 @@ export class BackgroundGeneratorService {
       }
       
       if (accentColour){
-        let accentColours = this.findShades( accentColour, accentAdjustments);
+        let accentColours = this.findShades( accentColour, accentAdjustments );
         this.styleSheets[page].addRules({
           
-          'nav-logo': {
           
-            '& .accentColourStroke': {
-              stroke: accentColours[0]
-            },
-            
+          'accentColour': {
+            color: accentColours[0],
+            stroke: accentColours[0]
+          },
+          'active': {
+            '& .nav-link-box': {
+              color: accentColours[0]
+            }
+          },
+          'nav-link': {
             '&:hover': {
-                
-              '& .accentColourStroke': {
-                stroke: textColour
+                '& .nav-link-box':{
+                  color: accentColours[0]
+                }
+              },
+              '&:focus': {
+                '& .nav-link-box':{
+                  color: accentColours[0]
+                }
+              }   
+            },
+            'nav-link-box': {
+              '&:before': {
+                'border-color': accentColours[0]
+              },
+              
+              '&:after': {
+                'border-color': accentColours[0]
               }
             }
-          }
+          // 'nav-logo': {
+          
+          //   '& .accentColour': {
+          //     stroke: accentColours[0]
+          //   },
+            
+          //   '&:hover': {
+                
+          //     '& .accentColourStroke': {
+          //       stroke: textColour
+          //     }
+          //   }
+          // }
         });
         
       }
@@ -129,7 +160,7 @@ export class BackgroundGeneratorService {
       
       
       // If first page loaded
-      setTimeout( () => { this.styleSheets[page].attach(); }, 500);
+      setTimeout( () => { this.styleSheets[page].attach(); }, 750);
       // Else
       //  do instantly
     
@@ -147,7 +178,7 @@ export class BackgroundGeneratorService {
         this.styleSheets[page].detach();
         jss.removeStyleSheet(this.styleSheets[page]);
         delete this.styleSheets[page];
-      }, 500);
+      }, 950);
     }
   }
 

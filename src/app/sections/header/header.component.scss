@@ -12,6 +12,8 @@
 
 	font-family: 'Jaapokki', sans-serif;
 	
+	margin-bottom: 1.5rem;
+	
 	
 	.navbar-brand{
     	font-size: 2.75rem;
@@ -25,6 +27,16 @@
         	
         	.triangle{
             	transition: transform 0.5s ease-out, stroke 1s;
+            	
+                #triangle-1{
+                	stroke: currentColor;
+                	transform: translate(10.047px, 1.871px) rotate(180deg);
+                }
+            
+                #triangle-2{
+                	stroke: currentColor;
+                	transform: translate(28.047px, 1.871px) rotate(180deg);
+                }
             }
             
             &:hover{
@@ -34,12 +46,12 @@
                 }
                 
                 #triangle-1{
-                	stroke: #FFF;
+                	stroke: #FFF !important;
                 	transform: translate(10.047px, 1.871px) rotate(180deg);
                 }
             
                 #triangle-2{
-                	stroke: #FFF;
+                	stroke: #FFF !important;
                 	transform: translate(28.047px, 1.871px) rotate(180deg);
                 }
             }
@@ -53,10 +65,15 @@
         margin-right: 0;
         margin-left: auto;
         
+        .naughty-o{
+        
+        	margin-left: -0.05em;
+        }
+        
         .nav-link-box {
         	position: relative;
         
-        	color: #FFF !important;
+            color: #FFF;
             font-size: 1.5rem;
         	letter-spacing: 0.5rem;
         
@@ -70,9 +87,9 @@
         
         
         
-        a:hover, a:focus{
+        .nav-link:hover, .nav-link:focus{
             .nav-link-box{
-        	    color: $accentColour !important;
+        	    color: $accentColour;
             }
         }
         
@@ -111,8 +128,9 @@
         }
         
         .active{
+            
             .nav-link-box{
-        	    color: #F2642A !important;
+    	        color: $accentColour;
             }
             
             .nav-link-box:before,.nav-link-box:after {

@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     var pageName: string =      this.page;
     var bgBaseColour: string =  'hsl(0, 59%, 40%)';
     var textColour: string =    'hsl(112, 80%, 85%)';
-    var accentColour: string =  'hsl(342, 40%, 40%)';
+    var accentColour: string =  'hsl(202, 40%, 60%)';
     
     this.backgroundGeneratorService.colourChange( pageName,
                                                   bgBaseColour,
