@@ -1,19 +1,29 @@
 <!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 1035.1 280" style="enable-background:new 0 0 1035.1 280;" xml:space="preserve">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1035.1 280" width="100%">
+
+
 <defs>
   <style type="text/css">
 	.st0{fill:#FFFFFF;}
 	.st1{fill:#F2642A;}
 	.st2{fill:none;}
-	.st3{font-family:'Jaapokki-Regular';}
+	.st3{font-family:'Jaapokki';}
 	.st4{font-size:144px;}
-	.st5{letter-spacing:57;}
+	.st5{textLength:57;}
 	.st6{font-size:96px;}
-	.st7{letter-spacing:38;}
-	.st8{letter-spacing:27;}
-	.st9{letter-spacing:41;}
+	.st7{textLength:38;}
+	.st8{textLength:47;}
+	.st9{textLength:41;}
 	.st10{stroke:#F2642A;stroke-width:12;stroke-miterlimit:10;}
+	.unselectable-text{
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		
+		cursor: default
+	}
 </style>
 </defs>
 <g>
@@ -104,7 +114,10 @@
 	</g>
 </g>
 <g>
-	<text transform="matrix(1 0 0 1 -10.1866 122.7863)"><tspan x="0" y="0" class="st2 st3 st4 st5">A</tspan><tspan x="172.7" y="0" class="st0 st3 st6 st7">DA</tspan><tspan x="391.2" y="0" class="st0 st3 st6 st8">M</tspan><tspan x="497" y="0" class="st2 st3 st4 st9">W</tspan><tspan x="693.5" y="0" class="st0 st3 st6 st7">EE</tspan><tspan x="884.9" y="0" class="st0 st3 st6 st8">KS</tspan></text>
+	<text transform="matrix(1 0 0 1 -10.1866 122.7863)" class="unselectable-text">
+	  <tspan x="23.9" y="0" class="st2 st3 st4 st5">A</tspan><tspan x="172.7" y="0" class="st0 st3 st6 st7">D</tspan><tspan x="272.7" y="0" class="st0 st3 st6 st7">A</tspan><tspan x="392.2" y="0" class="st0 st3 st6 st8">M</tspan>
+	  <tspan x="515.2" y="0" class="st2 st3 st4 st9">W</tspan><tspan x="679.5" y="0" class="st0 st3 st6 st7">E</tspan><tspan x="779.5" y="0" class="st0 st3 st6 st7">E</tspan><tspan x="878.9" y="0" class="st0 st3 st6 st8">K</tspan><tspan x="966.5" y="0" class="st0 st3 st6 st7">S</tspan>
+	  </text>
 	<g>
 		<path class="st1" d="M121,122.6H21.8L71.4,21.3L121,122.6z M41.5,110.3h59.9L71.4,49.2L41.5,110.3z"/>
 	</g>
