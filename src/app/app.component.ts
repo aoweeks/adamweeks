@@ -28,6 +28,12 @@ export class AppComponent {
     this.backgroundGeneratorService.updateYOffset();
   }
   
+  @HostListener('window:resize', ['$event'])
+  onResize(event){
+     this.backgroundGeneratorService.updateSize( event.target.innerWidth,
+                                                 event.target.innerHeight );
+  }
+  
   getState(outlet) {
     return outlet.activatedRouteData.state;
   }

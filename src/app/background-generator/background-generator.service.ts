@@ -8,6 +8,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class BackgroundGeneratorService {
   
   private funMode: boolean = true;
+  private delay: number = 0;
+  
+  private backgroundURL: string = "assets/images/background-medium.svg";
   
   browserOffset = {
     currentX: 0,
@@ -31,8 +34,29 @@ export class BackgroundGeneratorService {
     jss.setup({createGenerateClassName});
   }
   
+  
+  
+  
   //=====GETTERS AND SETTERS=======
   
+  
+  public updateSize( width: number, height: number): void {
+    let imageURL: string = "assets/images/background-";
+    
+    if (width < 800){
+      this.backgroundURL = imageURL + "small.svg";
+    }
+    else if (width > 799 && width < 2000){
+      this.backgroundURL = imageURL + "medium.svg"
+    }    
+    else {
+      this.backgroundURL =  imageURL + "large.svg";
+    }
+  }
+  
+  public getBackgroundURL(): string{
+    return this.backgroundURL;
+  }
   
   public getFunMode(): boolean{
     return this.funMode;
@@ -159,11 +183,11 @@ export class BackgroundGeneratorService {
       }
       
       
-      // If first page loaded
-      setTimeout( () => { this.styleSheets[page].attach(); }, 750);
-      // Else
-      //  do instantly
-    
+      setTimeout( () => {
+        this.styleSheets[page].attach();
+      }, this.delay);
+
+      this.delay = 750;
       
     }
     

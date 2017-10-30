@@ -49,12 +49,9 @@ $radarSpeed: 1.25s;
     	cx: 342.112;
     	cy: 1038.682;
     	r: 100;
-    	opacity: 1;
+    	opacity: 0;
     	fill: none;
-    	
-        -moz-animation: expand (4 * $radarSpeed) linear infinite,
-	               fade (4 * $radarSpeed) ease infinite;
-    	
+    
 	    animation: expand (4 * $radarSpeed) linear infinite,
 	               fade (4 * $radarSpeed) ease infinite;
     
