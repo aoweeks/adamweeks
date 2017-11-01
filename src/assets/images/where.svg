@@ -23,14 +23,18 @@
 		} 
 	}
 	
+	
 	@-moz-keyframes expand{
 		0% {
-			r: 0;
+			stroke-width: 0.3;
+			transform: scale(1,1);
 		}
 		100% {
-			r: 150;
+			stroke-width: 0.0001;
+			transform: scale(150,150);
 		}
 	}
+	
 	
 	@-moz-keyframes fade{
 		0% {
@@ -42,20 +46,20 @@
 	}	
   		
   		
-  .location{
+	.location{
     
 		stroke: #F2642A;
 		stroke-width: 10;
 		stroke-miterlimit: 10;
-		cx: 342.112;
-		cy: 1038.682;
-		r: 100;
 		opacity: 0;
 		fill: none;
-	
+		
+	    -moz-animation: expand 5s linear infinite,
+	            		fade 5s ease infinite;	
 	    animation: expand 5s linear infinite,
 	               fade 5s ease infinite;
-    
+
+		transform-origin: 342.112px 1038.682px;
     }
     
 
@@ -601,9 +605,9 @@
   		</g>
   	</g>
   	<g id="circles">
-  		<circle id="circle1" class="location" />
-  		<circle id="circle2" class="location" />
-  		<circle id="circle3" class="location" />
-  		<circle id="circle4" class="location" />
+  		<circle id="circle1" class="location" cx="342.112" cy="1038.682" r="1" />
+  		<circle id="circle2" class="location" cx="342.112" cy="1038.682" r="1" />
+  		<circle id="circle3" class="location" cx="342.112" cy="1038.682" r="1" />
+  		<circle id="circle4" class="location" cx="342.112" cy="1038.682" r="1" />
   	</g>
   </svg>
