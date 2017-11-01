@@ -21,9 +21,11 @@
     
       </a>
 
-    <button class="navbar-toggler navbar-toggler-right" type="button" (click)="navbarCollapsed = !navbarCollapsed"
+    <button id="hamburger-menu" class="navbar-toggler navbar-toggler-right" [ngClass]="{'menu-active': !navbarCollapsed}" type="button" (click)="navbarCollapsed = !navbarCollapsed"
             [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+        <div id="menu-line-1"></div>
+        <div id="menu-line-2"></div>
+        <div id="menu-line-3"></div>
     </button>
 
     <div class="navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarContent">

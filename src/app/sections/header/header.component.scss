@@ -148,3 +148,42 @@
     }
 
 }
+
+
+
+#hamburger-menu{
+    width: 3rem;
+    height: 3rem;
+    
+    border: none;
+    cursor: pointer;
+    
+    position: relative;
+    
+    #menu-line-1, #menu-line-2, #menu-line-3{
+        width: 90%;
+        height: 10%;
+        
+        left: 5%;
+        
+        background: white;
+        
+        position: absolute;
+        transition: all 0.25s;
+    }
+    
+    #menu-line-1{top: 20%;}
+    #menu-line-2{top: 45%;}
+    #menu-line-3{top: 70%;}
+    
+    &:hover{
+        #menu-line-1{transform: translateY(-75%);}
+        #menu-line-3{transform: translateY(75%);}
+    }
+    
+    &.menu-active{
+        #menu-line-1{transform: translateY(250%) rotate(45deg);}
+        #menu-line-2{transform: scaleX(0);}
+        #menu-line-3{transform: translateY(-250%) rotate(-45deg);}
+    }
+}

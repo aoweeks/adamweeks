@@ -95,6 +95,9 @@ export class BackgroundGeneratorService {
         let colours = this.findShades(bgColour, bgAdjustments);
         
         this.styleSheets[page].addRules({
+          'body': {
+            background: colours[0]
+          },
           'bgtc0': {
             fill: colours[0]
           },
