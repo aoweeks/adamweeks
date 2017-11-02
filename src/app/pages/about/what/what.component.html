@@ -1,0 +1,30 @@
+
+<svg height="10rem" width="50rem">
+    
+    <style type="text/css">
+        @keyframes cursor-blink{
+            50%{ visibility: hidden; }
+        }
+    
+        .code-cursor{
+            animation: cursor-blink 1.2s step-end infinite;
+        }
+    </style>
+  <text fill="white" x="10px" y="20px" id="code-content" [innerHTML]="getCodeText()">
+
+
+    <!--<tspan id="code-content">-->
+    <!--  Hello-->
+    <!--</tspan>-->
+    <!--<tspan x="10px" dy="20px">-->
+    <!--  Welcome to my <tspan fill="orange">show </tspan> everyone-->
+    <!--</tspan>-->
+    <!--<tspan x="10px" dy="20px">-->
+    <!--  I'm glad that you could come-->
+    <!--</tspan>-->
+    <!--<tspan x="10px" dy="20px">-->
+    <!--  Welcome to my <tspan fill="orange">show </tspan> everyone-->
+    <!--</tspan>-->
+    <!--<tspan id="code-cursor" x="10px" dy="20px">|</tspan>  -->
+  </text>
+</svg>
