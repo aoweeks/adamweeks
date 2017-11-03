@@ -1,18 +1,21 @@
 
 <svg height="10rem" width="50rem">
-    
-    <style type="text/css">
+    <style type="text/cssh">
         @keyframes cursor-blink{
             50%{ visibility: hidden; }
         }
     
         .code-cursor{
             animation: cursor-blink 1.2s step-end infinite;
+            x: 5px;
         }
     </style>
-  <text fill="white" x="10px" y="20px" id="code-content" [innerHTML]="getCodeText()">
-
-
+  <text fill="white" x="10px" y="20px" id="code-content">
+    <tspan #code>
+        <tspan x="10px" dy="20px">Hello</tspan>
+        <tspan x="10px" dy="20px">Farewell</tspan>
+        <tspan x="10px" dy="20px">Aloha</tspan>
+    </tspan>
     <!--<tspan id="code-content">-->
     <!--  Hello-->
     <!--</tspan>-->
@@ -25,6 +28,6 @@
     <!--<tspan x="10px" dy="20px">-->
     <!--  Welcome to my <tspan fill="orange">show </tspan> everyone-->
     <!--</tspan>-->
-    <!--<tspan id="code-cursor" x="10px" dy="20px">|</tspan>  -->
+    <tspan #cursor class="code-cursor">|</tspan>
   </text>
 </svg>

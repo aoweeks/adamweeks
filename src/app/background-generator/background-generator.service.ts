@@ -55,7 +55,6 @@ export class BackgroundGeneratorService {
   }
   
   public getBackgroundURL(): string{
-    console.log('fired!');
     return this.backgroundURL;
   }
   
