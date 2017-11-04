@@ -44,17 +44,20 @@ export class WhatComponent implements AfterViewInit {
   
   public nextKeystroke(){
     
-    let delayMultiplier: number = 1;
+    let extraDelay: number = 50;
     
     if(this.position[1] == this.codeTextTemplate[this.position[0]].length ){
       this.position[0]++;
       if(this.position[0] == this.codeTextTemplate.length){this.position[0] = 0};
       this.position[1] = 0;
       
+      //Remove cursor
+      
+      console.log(this.currentLine.innerHTML.slice(0, -1));
+      this.currentLine.innerHTML = this.currentLine.innerHTML.slice(0, -1);
       this.createNewLine();
       
-      delayMultiplier += Math.random() * 5;
-      console.log(delayMultiplier);
+      extraDelay += (Math.random() * 100);
                                      
       /*let newLine = this.renderer.createElement('tspan');//, 'http://www.w3.org/2000/svg');
       let text = this.renderer.createText('Hello world!');
@@ -84,16 +87,17 @@ export class WhatComponent implements AfterViewInit {
       //append new line
     }
     else{
-      // code line ${position[0]} append
-      this.currentLine.innerHTML += this.codeTextTemplate[this.position[0]].charAt(this.position[1]);
-      this.position[1]++;  
+      
+      //Delete the cursor on a new line
+      if(this.position[1] == 0){ this.currentLine.innerHTML = "" }
+      this.position[1]++;
+      this.currentLine.innerHTML = this.codeTextTemplate[this.position[0]].substr(0, this.position[1]);
+      this.currentLine.innerHTML += '|';
     }
     
     
-    //cursor remove class and then add class
-    this.renderer.removeClass(this.cursor.nativeElement, 'code-cursor');
-    this.renderer.addClass(this.cursor.nativeElement, 'code-cursor');
-    setTimeout(() => this.nextKeystroke(), 500);
+    let delay = (Math.random() * 200) + extraDelay;
+    setTimeout(() => this.nextKeystroke(), delay);
   }
   
   
