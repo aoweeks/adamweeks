@@ -52,11 +52,11 @@ export class WhatComponent implements AfterViewInit {
       this.position[1] = 0;
       
       //Remove cursor
-      
-      console.log(this.currentLine.innerHTML.slice(0, -1));
       this.currentLine.innerHTML = this.currentLine.innerHTML.slice(0, -1);
-      this.createNewLine();
       
+      this.createNewLine();
+      this.currentLine.innerHTML = '|';
+
       extraDelay += (Math.random() * 100);
                                      
       /*let newLine = this.renderer.createElement('tspan');//, 'http://www.w3.org/2000/svg');
@@ -87,9 +87,6 @@ export class WhatComponent implements AfterViewInit {
       //append new line
     }
     else{
-      
-      //Delete the cursor on a new line
-      if(this.position[1] == 0){ this.currentLine.innerHTML = "" }
       this.position[1]++;
       this.currentLine.innerHTML = this.codeTextTemplate[this.position[0]].substr(0, this.position[1]);
       this.currentLine.innerHTML += '|';
