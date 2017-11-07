@@ -176,7 +176,7 @@
     #menu-line-2{top: 45%;}
     #menu-line-3{top: 70%;}
     
-    &:hover{
+    &:hover, &:focus{
         #menu-line-1{transform: translateY(-75%);}
         #menu-line-3{transform: translateY(75%);}
     }

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import { Component, AfterContentInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -6,19 +6,32 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './what.component.html',
   styleUrls: ['./what.component.scss']
 })
-export class WhatComponent implements AfterViewInit {
+export class WhatComponent implements AfterContentInit {
 
   @ViewChild('code')    code:   ElementRef;
   @ViewChild('cursor')  cursor: ElementRef;
 
-  private codeText: string = '';
+  // private codeText: string = '';
+  private keywords: string[] = [
+    "if",
+    "return",
+    "Date.now",
+    "Date.",
+    "Date",
+    "private",
+    "public"
+  ]; 
   
+  
+  private codeTextTransform: string = 'translate(175, 150)';
   private  codeTextTemplate: string[] = [
-      "Hello",
-      "Is there anybody out there?",
-      "Hello?",
-      "Is it me you're looking for?",
-      "I can see it in your eyes"
+       "public name = 'Adam Weeks';",
+       "private age = Date.now() - 495417600;",
+       "private codeWindow(){",
+       "  if (true != false){",
+       "    return 'Hello';",
+       "  }",
+       "}"
     
   ];
   
@@ -30,23 +43,25 @@ export class WhatComponent implements AfterViewInit {
   }
 
 
-  ngAfterViewInit() {
+  ngAfterContentInit() {
     this.createNewLine();
     this.nextKeystroke();
   }
   
   private createNewLine(): void{
-    this.currentLine = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
-    this.currentLine.setAttribute('x', "10px");
-    this.currentLine.setAttribute('dy', "20px");
+    this.currentLine = document.createElementNS(  'http://www.w3.org/2000/svg',
+                                                  'tspan' );
+    this.currentLine.setAttribute('x', "0px");
+    this.currentLine.setAttribute('dy', "36px");
     this.code.nativeElement.appendChild(this.currentLine);
   }
   
-  public nextKeystroke(){
+  private nextKeystroke(){
     
-    let extraDelay: number = 50;
+    let extraDelay: number = 30;
     
     if(this.position[1] == this.codeTextTemplate[this.position[0]].length ){
+      
       this.position[0]++;
       if(this.position[0] == this.codeTextTemplate.length){this.position[0] = 0};
       this.position[1] = 0;
@@ -56,6 +71,12 @@ export class WhatComponent implements AfterViewInit {
       
       this.createNewLine();
       this.currentLine.innerHTML = '|';
+      
+          console.log(this.code.nativeElement.children.length);
+
+      if(this.code.nativeElement.children.length > 29){
+        this.code.nativeElement.removeChild(this.code.nativeElement.firstChild);
+      }
 
       extraDelay += (Math.random() * 100);
                                      
@@ -88,26 +109,43 @@ export class WhatComponent implements AfterViewInit {
     }
     else{
       this.position[1]++;
-      this.currentLine.innerHTML = this.codeTextTemplate[this.position[0]].substr(0, this.position[1]);
+      
+      let stage: string = this.codeTextTemplate[this.position[0]].substr(0, this.position[1]);
+      
+      this.keywords.forEach((keyword) => {
+        stage = stage.replace(keyword, `<tspan class="accentFill">${keyword}</tspan>`);
+      });
+      
+      this.currentLine.innerHTML = stage;
+      
+      // let splitStr = this.currentLine.innerHTML.split(" ");
+      // if(splitStr[splitStr.length - 1] == 'Date'){
+      //   splitStr[splitStr.length - 1] = '<tspan fill="orange">Date</tspan>';
+      // } 
+      
+      // this.currentLine.innerHTML = splitStr.join(" ");
       this.currentLine.innerHTML += '|';
+      
     }
     
+    this.updateScrollPos();
     
-    let delay = (Math.random() * 200) + extraDelay;
+    
+    let delay = (Math.random() * 100) + extraDelay;
     setTimeout(() => this.nextKeystroke(), delay);
   }
   
-  
-  public getCodeText(): any{
-    let cursor: string;
+  private updateScrollPos(): void{
+    let yOffset: number = 150;
     
-    if(this.position[1]){
-      cursor = '<tspan class="code-cursor">|</tspan>';
-    }
-    else{
-      cursor = '<tspan class="code-cursor" x="10" dy="20">|</tspan>'
+    let numOfLines: number = this.code.nativeElement.children.length;
+
+    if(numOfLines > 8){
+      let lineOverflow = numOfLines - 8;
+      
+      yOffset -= (lineOverflow * 36);
     }
     
-    return this.sanitizer.bypassSecurityTrustHtml(this.codeText + cursor);
+    this.codeTextTransform = `translate(175,${yOffset})`;
   }
 }

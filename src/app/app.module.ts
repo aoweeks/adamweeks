@@ -20,7 +20,6 @@ import { CodeGalleryComponent } from './pages/code-gallery/code-gallery.componen
 import { InfoComponent } from './pages/home/info/info.component';
 import { SwitchComponent } from './shared-components/switch/switch.component';
 import { WhatComponent } from './pages/about/what/what.component';
-import { ScrollableDirective } from './pages/about/scrollable.directive';
 
 
 
@@ -37,8 +36,7 @@ import { ScrollableDirective } from './pages/about/scrollable.directive';
     CodeGalleryComponent,
     InfoComponent,
     SwitchComponent,
-    WhatComponent,
-    ScrollableDirective
+    WhatComponent
   ],
   imports: [
     AppRouting,
