@@ -52,7 +52,7 @@ export class WhatComponent implements AfterContentInit {
     this.currentLine = document.createElementNS(  'http://www.w3.org/2000/svg',
                                                   'tspan' );
     this.currentLine.setAttribute('x', "0px");
-    this.currentLine.setAttribute('dy', "36px");
+    this.currentLine.setAttribute('dy', "24px");
     this.code.nativeElement.appendChild(this.currentLine);
   }
   
@@ -140,10 +140,10 @@ export class WhatComponent implements AfterContentInit {
     
     let numOfLines: number = this.code.nativeElement.children.length;
 
-    if(numOfLines > 8){
-      let lineOverflow = numOfLines - 8;
+    if(numOfLines > 12){
+      let lineOverflow = numOfLines - 12;
       
-      yOffset -= (lineOverflow * 36);
+      yOffset -= (lineOverflow * 24);
     }
     
     this.codeTextTransform = `translate(175,${yOffset})`;
