@@ -1,9 +1,17 @@
 <svg width="100%" viewBox="-50 -50 980 1550">
     <style type="text/css">
+    @keyframes dash-draw {
+	  to {
+	    stroke-dashoffset: 0;
+	  }
+	}
+    
+    
      tspan{ white-space: pre; }
      #artPath{
-     	stroke-dasharray: 100;
-     	stroke-dashoffset: 500;
+     	stroke-dasharray: 400;
+     	stroke-dashoffset: 400;
+     	animation: dash-draw 2s linear 0.01s infinite;
  	 }
     </style>
 	
@@ -30,7 +38,7 @@
 	</g>
 	
 	
-	<path fill="none" stroke="white" id="artPath" d="M300,1127 L350,1387 L420,1289z"/>
+	<path fill="none" stroke="white" id="artPath" d="M300,1127 l0,100 l100,0 l0,-100 l0,0z"/>
 	
 	<g id="Art" transform="translate(-437,-1210)">
 		<polygon fill="none" stroke="#FFFFFF" stroke-width="8" stroke-miterlimit="10" points="709.396,669.039 
@@ -40,6 +48,6 @@
 			<line fill="none" stroke="#FFFFFF" stroke-width="8" stroke-miterlimit="10" x1="748.299" y1="692.27" x2="484.048" y2="1149.965"/>
 			<line fill="none" stroke="#FFFFFF" stroke-width="8" stroke-miterlimit="10" x1="464.563" y1="1138.714" x2="728.813" y2="681.02"/>
 		<animateMotion dur="2s" repeatCount="indefinite"
-		    path="M300,1127 L350,1387 L420,1289z"/>
+		    path="M300,1127 l0,100 l100,0 l0,-100 l0,0z"/>
 	</g>
 </svg>
