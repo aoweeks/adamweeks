@@ -11,6 +11,9 @@ export class WhatComponent implements AfterContentInit {
   @ViewChild('code')    code:   ElementRef;
   @ViewChild('cursor')  cursor: ElementRef;
 
+
+  private animationActivated: boolean = false;
+  
   // private codeText: string = '';
   private keywords: string[] = [
     "if",
@@ -46,6 +49,7 @@ export class WhatComponent implements AfterContentInit {
   ngAfterContentInit() {
     this.createNewLine();
     this.nextKeystroke();
+    setTimeout(() => {this.animationActivated = true}, 500);
   }
   
   private createNewLine(): void{
