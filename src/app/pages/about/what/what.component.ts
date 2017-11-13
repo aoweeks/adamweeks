@@ -1,4 +1,4 @@
-import { Component, AfterContentInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import { Component, AfterContentInit, AfterViewInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -6,7 +6,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './what.component.html',
   styleUrls: ['./what.component.scss']
 })
-export class WhatComponent implements AfterContentInit {
+export class WhatComponent implements AfterContentInit, AfterViewInit {
 
   @ViewChild('code')    code:   ElementRef;
   @ViewChild('cursor')  cursor: ElementRef;
@@ -49,7 +49,10 @@ export class WhatComponent implements AfterContentInit {
   ngAfterContentInit() {
     this.createNewLine();
     this.nextKeystroke();
-    setTimeout(() => {this.animationActivated = true}, 500);
+  }
+  
+  ngAfterViewInit(){
+    setTimeout(() => {this.animationActivated = true}, 0);
   }
   
   private createNewLine(): void{

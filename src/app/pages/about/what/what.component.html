@@ -11,7 +11,7 @@
      #artPath{
      	stroke-dasharray: 400;
      	stroke-dashoffset: 400;
-     	animation: dash-draw 5s linear infinite;
+     	animation: dash-draw 12s linear infinite;
  	 }
     </style>
 	
@@ -38,17 +38,19 @@
 	</g>
 	
 	
-	<path *ngIf="animationActivated" fill="none" stroke="white" id="artPath" d="M300,1127 l0,100 l100,0 l0,-100 l0,0z"/>
+	<path *ngIf="animationActivated" fill="none" stroke="white"
+		stroke-linejoin="round" stroke-linecap="round"
+		stroke-width="6" id="artPath" d="M300,1127 l0,100 l100,0 l0,-100 l0,0z"/>
 	
 	<!--437, 1210-->
-	<g id="Art" transform="rotate(45)">
+	<g id="Art" transform="rotate(4)">
 		<polygon fill="none" stroke="#FFFFFF" stroke-width="8" stroke-miterlimit="10" points="272.396,-540.961
 			7.623,-82.361 2.336,-5.029 66.664,-48.273 331.438,-506.873 	"/>
 		<polyline fill="#FFFFFF" points="2.336,-5.029 30.515,-23.972 4.652,-38.904 2.336,-5.029 	"/>
 			<line fill="none" stroke="#FFFFFF" stroke-width="8" stroke-miterlimit="10" x1="7.395" y1="-82.354" x2="66.717" y2="-48.103"/>		
 			<line fill="none" stroke="#FFFFFF" stroke-width="8" stroke-miterlimit="10" x1="311.299" y1="-517.73" x2="47.048" y2="-60.035"/>
 			<line fill="none" stroke="#FFFFFF" stroke-width="8" stroke-miterlimit="10" x1="27.563" y1="-71.286" x2="291.813" y2="-528.98"/>
-		<animateMotion *ngIf="animationActivated" dur="5s" repeatCount="indefinite"
+		<animateMotion *ngIf="animationActivated" dur="12s" repeatCount="indefinite"
 		    path="M300,1127 l0,100 l100,0 l0,-100 l0,0z"/>
 	</g>
 </svg>
