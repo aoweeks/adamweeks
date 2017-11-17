@@ -1,4 +1,4 @@
-import { Component, AfterContentInit, AfterViewInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import { Component, AfterContentInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -6,13 +6,10 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './what.component.html',
   styleUrls: ['./what.component.scss']
 })
-export class WhatComponent implements AfterContentInit, AfterViewInit {
+export class WhatComponent implements AfterContentInit {
 
   @ViewChild('code')    code:   ElementRef;
   @ViewChild('cursor')  cursor: ElementRef;
-
-
-  private animationActivated: boolean = false;
   
   // private codeText: string = '';
   private keywords: string[] = [
@@ -49,10 +46,9 @@ export class WhatComponent implements AfterContentInit, AfterViewInit {
   ngAfterContentInit() {
     this.createNewLine();
     this.nextKeystroke();
-  }
-  
-  ngAfterViewInit(){
-    setTimeout(() => {this.animationActivated = true}, 0);
+
+    let drawing: SVGPathElement = document.createElementNS( 'http://www.w3.org/2000/svg',
+                                                        'path' );
   }
   
   private createNewLine(): void{
