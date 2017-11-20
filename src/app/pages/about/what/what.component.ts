@@ -67,9 +67,11 @@ export class WhatComponent implements AfterContentInit {
     pencilMotion.setAttribute('repeatCount', 'indefinite');
     pencilMotion.setAttribute('path', 'M300,1127 l0,100 l100,0 l0,-100 l0,0z');
     
-    
-    this.art.nativeElement.appendChild(pencilMotion);
-    this.canvas.nativeElement.appendChild(drawing);
+     
+    setTimeout( () => {
+      this.art.nativeElement.appendChild(pencilMotion);
+      this.canvas.nativeElement.appendChild(drawing);
+    }, 1500);
   }
   
   private createNewLine(): void{
