@@ -50,28 +50,29 @@ export class WhatComponent implements AfterContentInit {
   ngAfterContentInit() {
     this.createNewLine();
     this.nextKeystroke();
-
-    let drawing: SVGPathElement = document.createElementNS( 'http://www.w3.org/2000/svg',
-                                                            'path' );
-    drawing.setAttribute('fill', 'none');
-    drawing.setAttribute('stroke', 'white');
-    drawing.setAttribute('stroke-linejoin', 'round');
-    drawing.setAttribute('stroke-linecap', 'round');
-    drawing.setAttribute('stroke-width', '6');
-    drawing.setAttribute('d', 'M300,1127 l0,100 l100,0 l0,-100 l0,0z');
-    drawing.id = 'artPath';
-    
-    let pencilMotion: SVGElement = document.createElementNS(  'http://www.w3.org/2000/svg',
-                                                              'animateMotion' );
-    pencilMotion.setAttribute('dur', '2s');
-    pencilMotion.setAttribute('repeatCount', 'indefinite');
-    pencilMotion.setAttribute('path', 'M300,1127 l0,100 l100,0 l0,-100 l0,0z');
     
      
     setTimeout( () => {
+        
+      let drawing: SVGPathElement = document.createElementNS( 'http://www.w3.org/2000/svg',
+                                                              'path' );
+      drawing.setAttribute('fill', 'none');
+      drawing.setAttribute('stroke', 'white');
+      drawing.setAttribute('stroke-linejoin', 'round');
+      drawing.setAttribute('stroke-linecap', 'round');
+      drawing.setAttribute('stroke-width', '6');
+      drawing.setAttribute('d', 'M300,1127 l0,100 l100,0 l0,-100 l0,0z');
+      drawing.id = 'artPath';
+      
+      let pencilMotion: SVGElement = document.createElementNS(  'http://www.w3.org/2000/svg',
+                                                                'animateMotion' );
+      pencilMotion.setAttribute('dur', '2s');
+      pencilMotion.setAttribute('repeatCount', 'indefinite');
+      pencilMotion.setAttribute('path', 'M300,1127 l0,100 l100,0 l0,-100 l0,0z');
+        
       this.art.nativeElement.appendChild(pencilMotion);
       this.canvas.nativeElement.appendChild(drawing);
-    }, 1500);
+    },0);
   }
   
   private createNewLine(): void{
