@@ -61,6 +61,9 @@ export class WhatComponent implements AfterContentInit {
       drawing.setAttribute('stroke-linejoin', 'round');
       drawing.setAttribute('stroke-linecap', 'round');
       drawing.setAttribute('stroke-width', '6');
+      drawing.setAttribute('stroke-dasharray', '400');
+	    drawing.setAttribute('stroke-dashoffset', '400');
+	    drawing.setAttribute('animation' , 'dash-draw 2s linear infinite');
       drawing.setAttribute('d', 'M300,1127 l0,100 l100,0 l0,-100 l0,0z');
       drawing.id = 'artPath';
       

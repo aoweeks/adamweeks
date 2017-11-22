@@ -17,8 +17,6 @@
     
      tspan{ white-space: pre; }
      #artPath{
-     	stroke-dasharray: 400;
-     	stroke-dashoffset: 400;
      	animation: dash-draw 2s linear infinite;
  	 }
  	 #Art{
@@ -55,7 +53,10 @@
 	</g>
 	<!--<path #drawing fill="none" stroke="white"-->
 	<!--	stroke-linejoin="round" stroke-linecap="round"-->
-	<!--	stroke-width="6" id="artPath" d="M300,1127 l0,100 l100,0 l0,-100 l0,0z"/>-->
+	<!--	stroke-width="6"
+	     	stroke-dasharray="400"
+	     	stroke-dashoffset="400"
+	     	id="artPath" d="M300,1127 l0,100 l100,0 l0,-100 l0,0z"/>-->
 	
 	<!--437, 1210-->
 	<g id="Art" #art>
