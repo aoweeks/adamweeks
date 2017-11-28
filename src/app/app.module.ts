@@ -20,6 +20,8 @@ import { CodeGalleryComponent } from './pages/code-gallery/code-gallery.componen
 import { InfoComponent } from './pages/home/info/info.component';
 import { SwitchComponent } from './shared-components/switch/switch.component';
 import { WhatComponent } from './pages/about/what/what.component';
+import { CodeNewComponent } from './pages/code-new/code-new.component';
+import { ArtNewComponent } from './pages/art-new/art-new.component';
 
 
 
@@ -36,7 +38,9 @@ import { WhatComponent } from './pages/about/what/what.component';
     CodeGalleryComponent,
     InfoComponent,
     SwitchComponent,
-    WhatComponent
+    WhatComponent,
+    CodeNewComponent,
+    ArtNewComponent
   ],
   imports: [
     AppRouting,
